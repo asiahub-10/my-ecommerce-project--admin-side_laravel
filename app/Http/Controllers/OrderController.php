@@ -15,6 +15,6 @@ class OrderController extends Controller
         Order::customerOrder($request);
         OrderDetail::saveOrderDetail($request);
         Payment::savePaymentInfo($request);
-        return response()->json(['status'=>'success', 'message'=>'Successfully Ordered'], 200);
+        return response()->json(['status'=>'success', 'message'=>'Thank you for your order.'], 200);
     }
 }
