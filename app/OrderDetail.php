@@ -8,6 +8,11 @@ class OrderDetail extends Model
 {
     protected $fillable =['order_id', 'product_id', 'product_name', 'product_price', 'product_quantity'];
 
+    public function products()
+    {
+        return $this->hasMany('App\Product', 'id', 'product_id');
+    }
+
     public static function saveOrderDetail($request)
     {
         $orderId = Order::orderBy('id', 'DESC')->first();
@@ -21,6 +26,10 @@ class OrderDetail extends Model
             $orderDetail->product_price     = $productItem['product_price'];
             $orderDetail->product_quantity  = $productItem['quantity'];
             $orderDetail->save();
+
+            $product = Product::find($orderDetail->product_id);
+            $product->product_quantity      = $product->product_quantity - $orderDetail->product_quantity;
+            $product->update();
         }
     }
 }
