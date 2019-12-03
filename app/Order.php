@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Mail;
 
 class Order extends Model
 {
@@ -22,5 +23,15 @@ class Order extends Model
         $order->order_total     =   $request->total;
         $order->save();
 
+    }
+
+    public static function orderMail($request) {
+        $customer = Customer::find($request->customerId);
+        $data = $customer->toArray();
+
+        Mail::send('front.mail.order-mail', $data, function ($message) use($data) {
+            $message->to($data['email']);
+            $message->subject('Order Confirmation Mail');
+        });
     }
 }
