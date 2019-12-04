@@ -29,7 +29,7 @@ class Order extends Model
         $customer = Customer::find($request->customerId);
         $data = $customer->toArray();
 
-        Mail::send('front.mail.order-mail', $data, function ($message) use($data) {
+        Mail::send('front.mail.order-confirm', $data, function ($message) use($data) {
             $message->to($data['email']);
             $message->subject('Order Confirmation Mail');
         });

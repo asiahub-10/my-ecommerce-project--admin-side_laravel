@@ -33,61 +33,15 @@
         </div>
     </div>
     <div class="container">
-        <div class="my-5 text-muted font-weight-bold text-justify font-italic">
-            <h5><p class="mb-2">Hey Shorna,</p>
+        <div class="mt-5 mb-4 text-muted font-weight-bold text-justify font-italic">
+            <h5><p class="mb-0">Hey x,</p>
                 We have received your <b>order no: 5</b> and we are working on it now. Your order will be on its way soon. We will contact you when we will ship it. Thanks for shopping with <strong><span class="text-warning">Asia</span>Fashion</strong>, we really appreciate it.
             </h5>
         </div>
-        <div class="row mb-4">
-            <div class="col-sm-6 card">
-                <div class="card-body">
-                    <h6 class="text-uppercase">Billing Address:</h6>
-                    <table class="table table-borderless mb-0">
-                        <tbody>
-                        <tr>
-                            <td>Name:</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile No:</td>
-                            <td>5/12/19</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-sm-6 card">
-                <div class="card-body">
-                    <h6 class="text-uppercase">Shipping To:</h6>
-                    <table class="table table-borderless mb-0">
-                        <tbody>
-                        <tr>
-                            <td>Name:</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile No:</td>
-                            <td>5/12/19</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mb-3">
         <div class="row">
             <div class="col-sm-6">
                 <h5 class="text-color text-uppercase">Order Summary:</h5>
-                <table class="table table-borderless mb-0">
+                <table class="table table-borderless mb-3">
                     <tbody>
                     <tr>
                         <td>Order Id:</td>
@@ -105,6 +59,54 @@
                 </table>
             </div>
         </div>
+        <div class="row mb-4">
+            <div class="card-group col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-uppercase">Billing Address:</h6>
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile No:</td>
+                                <td>5/12/19</td>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td>Tk. 1000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-uppercase">Shipping To:</h6>
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile No:</td>
+                                <td>5/12/19</td>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td>Tk. 1000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3">
         <div class="row mt-4">
             <div class="col-sm-12">
                 <h5 class="text-color text-uppercase mb-3">Item Summary:</h5>
