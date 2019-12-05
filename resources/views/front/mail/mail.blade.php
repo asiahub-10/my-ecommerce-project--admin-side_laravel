@@ -17,24 +17,6 @@
         .text-color {
             color:#fe7a59;
         }
-        .text-center {
-            text-align: center !important;
-        }
-        .fashion {
-            font-size: 50px;
-            text-shadow: 2px 2px 4px #d6d8db;
-            font-weight: 500;
-        }
-        .asia {
-            font-size: 50px;
-            text-shadow: 2px 2px 4px #6e707e;
-        }
-        .text-warning {
-            color: #ffc107 !important;
-        }
-        .text-muted {
-            color: #6c757d !important;
-        }
         {{--.img {--}}
             {{--height: 200px;--}}
             {{--background-image: url("{{ asset('/') }}admin/img/order.png");--}}
@@ -49,8 +31,8 @@
     <div class="container-fluid bg">
         <div class="row text-center">
             <div class="mx-auto mb-5 mt-4">
-                <a href="" class="text-muted mb-1 d-block navbar-brand fashion">
-                    <span class="text-warning asia" style="">Asis</span>Fashion
+                <a href="" class="text-muted mb-1 d-block navbar-brand" style="font-size: 50px; text-shadow: 2px 2px 4px #d6d8db; font-weight: 500;">
+                    <span class="text-warning" style="font-size: 50px; text-shadow: 2px 2px 4px #6e707e;">Asis</span>Fashion
                 </a>
                 {{--<div class="img"></div>--}}
                 {{--<img src="{{ asset('/') }}admin/img/order.png" alt="Order Confirm Image" />--}}

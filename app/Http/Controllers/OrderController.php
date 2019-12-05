@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Order;
 use App\OrderDetail;
 use App\Payment;
@@ -16,6 +17,7 @@ class OrderController extends Controller
         OrderDetail::saveOrderDetail($request);
         Payment::savePaymentInfo($request);
         Order::orderMail($request);
-        return response()->json(['status'=>'success', 'message'=>'Thank you for your order.'], 200);
+        $customerEmail = Customer::find($request->customerId)->email;
+        return response()->json(['status'=>'success', 'message'=>'Thank you for your order.', 'email'=>$customerEmail], 200);
     }
 }
