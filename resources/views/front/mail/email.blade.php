@@ -1,3 +1,8 @@
+<!--<p><span>Hey {{ $first_name }} {{ $last_name }},</span>-->
+    <!--<br/>-->
+    <!--<span>We have received your <b>order no: 5</b> and we are working on it now. Your order will be on its way soon. We will contact you when we will ship it. Thanks for shopping with <strong><span class="text-warning">Asia</span>Fashion</strong>, we really appreciate it.</span>-->
+<!--</p>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
 
         [class*=col-sm-]{
             float: left;
-            border: 1px solid red;
+            /*border: 1px solid red;*/
         }
         .container-fluid {
             width: 100%;
@@ -29,10 +34,8 @@
             clear: both;
             display: block;
         }
-        @media screen and (max-width: 576px){
-            [class*=col-sm-]{
-                width: 100%;
-            }
+        .shipping {
+            border-left: 1px solid rgba(0, 0, 0, 0.125);
         }
         .bg {
             background-color: #f69177;
@@ -45,31 +48,23 @@
         .text-color {
             color:#fe7a59;
         }
-        .border {
-            /*border: 5px solid #e0a800;*/
+        .col-container {
+            display: table;
+            width: 100%;
         }
-        .card {
-            position: relative;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: #fff;
-            background-clip: border-box;
+        .col {
+            display: table-cell;
+            padding: 20px;
             border: 1px solid rgba(0, 0, 0, 0.125);
-            border-radius: 0.25rem;
         }
-        .card-group {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-direction: column;
-            flex-direction: column;
-        }
-
-        .card-group > .card {
-            margin-bottom: 15px;
+        @media screen and (max-width: 576px){
+            [class*=col-sm-]{
+                width: 100%;
+            }
+            .col {
+                display: block;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -94,14 +89,11 @@
     </div>
     <div class="container">
         <div class="mt-5 mb-4 text-muted font-weight-bold text-justify font-italic" style="margin: 30px 0; font-size: 20px; font-weight: bold; color: #6c757d; text-align: justify; line-height: 30px;">
-            <p><span>Hey {{ $first_name }} {{ $last_name }},</span>
-                <br/>
-                <span>We have received your <b>order no: 5</b> and we are working on it now. Your order will be on its way soon. We will contact you when we will ship it. Thanks for shopping with <strong><span class="text-warning">Asia</span>Fashion</strong>, we really appreciate it.</span>
-            </p>
+
         </div>
-        <div class="row">
+        <div class="row" style="padding-bottom: 20px;">
             <div class="col-sm-6">
-                <h3 class="text-color" style="margin-top: 0;">Order Summary:</h3>
+                <h3 class="text-color" style="margin-top: 0; margin-bottom: 10px;">Order Summary:</h3>
                 <table>
                     <tr>
                         <td>Order Id:</td>
@@ -118,54 +110,60 @@
                 </table>
             </div>
         </div>
-        <div class="row border ">
-                <div class="col-sm-6 card">
-                    <div class="card-body">
-                        <h6 class="text-uppercase">Billing Address:</h6>
-                        <table class="table table-borderless mb-0">
-                            <tbody>
-                            <tr>
-                                <td>Name:</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>Mobile No:</td>
-                                <td>5/12/19</td>
-                            </tr>
-                            <tr>
-                                <td>Address:</td>
-                                <td>Tk. 1000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="row">
+            <div class="col-container">
+                <div class="col">
+                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0;">Billing Address:</h3>
+                    <table class="table table-borderless mb-0">
+                        <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile No:</td>
+                            <td>5/12/19</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>Tk. 1000</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>Tk. 1000</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>Tk. 1000</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-sm-6 card">
-                    <div class="card-body">
-                        <h6 class="text-uppercase">Shipping To:</h6>
-                        <table class="table table-borderless mb-0">
-                            <tbody>
-                            <tr>
-                                <td>Name:</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>Mobile No:</td>
-                                <td>5/12/19</td>
-                            </tr>
-                            <tr>
-                                <td>Address:</td>
-                                <td>Tk. 1000</td>
-                            </tr>
-                            <tr>
-                                <td>Address:</td>
-                                <td>Tk. 1000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col">
+                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0;">Shipping To:</h3>
+                    <table class="table table-borderless mb-0">
+                        <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile No:</td>
+                            <td>5/12/19</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>Tk. 1000</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>Tk. 1000</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-       </div>
+            </div>
+        </div>
     </div>
     <div class="container mb-3">
         <div class="row mt-4">
