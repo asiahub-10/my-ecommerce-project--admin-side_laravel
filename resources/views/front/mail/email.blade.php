@@ -1,4 +1,4 @@
-<!--<p><span>Hey {{ $first_name }} {{ $last_name }},</span>-->
+<!--<p><span>Hey ,</span>-->
     <!--<br/>-->
     <!--<span>We have received your <b>order no: 5</b> and we are working on it now. Your order will be on its way soon. We will contact you when we will ship it. Thanks for shopping with <strong><span class="text-warning">Asia</span>Fashion</strong>, we really appreciate it.</span>-->
 <!--</p>-->
@@ -23,9 +23,11 @@
         }
         .container-fluid {
             width: 100%;
+            height: auto;
+            margin: auto;
         }
         .container{
-            width: 80%;
+            width: 85%;
             height: auto;
             margin: auto;
         }
@@ -33,9 +35,6 @@
             content: '';
             clear: both;
             display: block;
-        }
-        .shipping {
-            border-left: 1px solid rgba(0, 0, 0, 0.125);
         }
         .bg {
             background-color: #f69177;
@@ -71,7 +70,7 @@
 
 <body>
 
-<section>
+<section style="border: #f69177 solid 8px;">
     <div class="container-fluid bg" style="padding-top: 50px; padding-bottom: 20px;">
         <div class="row" style="text-align: center">
             <div class="mx-auto mb-5 mt-4">
@@ -113,8 +112,8 @@
         <div class="row">
             <div class="col-container">
                 <div class="col">
-                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0;">Billing Address:</h3>
-                    <table class="table table-borderless mb-0">
+                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0; margin-bottom: 10px;">Billing Address:</h3>
+                    <table>
                         <tbody>
                         <tr>
                             <td>Name:</td>
@@ -140,7 +139,7 @@
                     </table>
                 </div>
                 <div class="col">
-                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0;">Shipping To:</h3>
+                    <h3 style="text-transform: uppercase; font-weight: normal; color:#6e707e; margin-top: 0; margin-bottom: 10px;">Shipping To:</h3>
                     <table class="table table-borderless mb-0">
                         <tbody>
                         <tr>
@@ -165,77 +164,75 @@
             </div>
         </div>
     </div>
-    <div class="container mb-3">
-        <div class="row mt-4">
+    <div class="container">
+        <div class="row">
             <div class="col-sm-12">
-                <h5 class="text-color text-uppercase mb-3">Item Summary:</h5>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>SL No.</th>
-                        <th>Item Image</th>
-                        <th>Item Detail</th>
-                        <th class="text-right">Total (BDT)</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="pl-2 py-2">fghgfh</td>
-                        <td class="pl-2 py-2">ghj</td>
-                        <td class="pl-2 py-2">fgjfj</td>
-                        <td class="text-right py-2 pr-2">&#2547; f</td>
+                <h3 class="text-color">Item Summary:</h3>
+                <table width="100%">
+                    <tr >
+                        <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">SL No.</th>
+                        <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">Item Image</th>
+                        <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">Item Detail</th>
+                        <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;" class="text-right">Total (BDT)</th>
                     </tr>
                     <tr>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2 text-right">Subtotal (2 items):</td>
-                        <td class="text-right py-2 pr-2">&#2547; 100</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >fghgfh</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >ghj</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >fgjfj</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: right; " >&#2547; f</td>
                     </tr>
                     <tr>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2 text-right">Tax:</td>
-                        <td class="text-right py-2 pr-2">&#2547; 100</td>
+                        <td></td>
+                        <td></td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Subtotal (2 items):</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
                     </tr>
                     <tr>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2"></td>
-                        <td class="pl-2 py-2 text-right font-weight-bold">Order Total:</td>
-                        <td class="text-right py-2 pr-2 font-weight-bold"><span style="border-bottom: 6px #6e707e double;">&#2547; 100</span></td>
+                        <td></td>
+                        <td></td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Tax:</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
                     </tr>
-                    </tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;">Order Total:</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;"><span style="border-bottom: 6px #6e707e double;">&#2547; 100</span></td>
+                    </tr>
                 </table>
             </div>
         </div>
     </div>
-    <div class="container-fluid bg py-1"></div>
+    <div class="container-fluid bg" style="height: 10px; margin-top: 30px;"></div>
     <div class="container">
-        <div class="row mt-4 mb-1">
-            <div class="col-sm-6">
-                <h6 class="text-uppercase text-center font-weight-bold text-color">Contact Us</h6>
-                <ul class="list-unstyled text-left text-muted">
-                    <li><i class="fas fa-store mr-2 py-2 text-color"></i> Baily Road, Dhaka.</li>
-                    <li><i class="fas fa-envelope-open-text mr-2 py-2 text-color"></i> asia_fashion@gmail.com</li>
-                    <li><i class="fas fa-phone mr-2 py-2 text-color"></i> +8801312345678</li>
-                </ul>
-            </div>
-            <div class="col-sm-6">
-                <h6 class="text-uppercase text-center font-weight-bold text-color">Follow Us</h6>
-                <div class="row">
-                    <div class="card-body text-center py-3">
-                        <a href=""><i class="text-muted fab fa-2x mx-1 fa-facebook-square social-media-icon"></i></a>
-                        <a href=""><i class="text-muted fab fa-2x mx-1 fa-twitter-square social-media-icon"></i></a>
-                        <a href=""><i class="text-muted fab fa-2x mx-1 fa-instagram social-media-icon"></i></a>
-                        <a href=""><i class="text-muted fab fa-2x mx-1 fa-linkedin social-media-icon"></i></a>
-                        <a href=""><i class="text-muted fab fa-2x mx-1 fa-google-plus-square social-media-icon"></i></a>
+        <div class="row">
+            <div class="col-container">
+                <div class="col" style="border: 0 !important;">
+                    <h3 style="text-transform: uppercase; text-align: center;" class="text-color"><u>Contact Us</u></h3>
+                    <div style="text-align: center; font-size: larger; color:#6e707e;">
+                        <p>Baily Road, Dhaka.</p>
+                        <p>asia_fashion@gmail.com</p>
+                        <p>+8801312345678</p>
+                    </div>
+                </div>
+                <div class="col" style="border: 0 !important;">
+                    <h3 style="text-transform: uppercase; text-align: center;" class="text-color"><u>Follow Us</u></h3>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div style="text-align: center;">
+                            <a href="#"><img src="https://image.flaticon.com/icons/png/512/124/124010.png" style="height: 30px; width: 30px; border-radius: 5px;" alt="facebook_icon"/></a>
+                            <a href="#"><img src="https://www.imediaethics.org/wp-content/uploads/2018/05/twitter.jpg" style="height: 30px; width: 30px; border-radius: 5px;" alt="twitter_icon"/></a>
+                            <a href="#"><img src="https://www.freepnglogos.com/uploads/instagram-logos-png-images-free-download-2.png" style="height: 30px; width: 30px; border-radius: 5px;" alt="instagram_icon"/></a>
+                            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png" style="height: 30px; width: 30px; border-radius: 5px;" alt="linked_icon"/></a>
+                            <a href="#"><img src="https://www.freepnglogos.com/uploads/google-plus-png-logo/google-logo-png-symbol-5.png" style="height: 30px; width: 30px; border-radius: 5px;" alt="google_plus_icon"/></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid bg">
-        <div class="row pt-3">
-            <p class="mx-auto text-light">&copy; 2019 <b>ASIA<span class="text-muted">FASHION</span></b>. All rights reserved | Design by <i><b>Asia Rahman</b></i></p>
+        <div class="row" style="padding: 1px 0; text-align: center; color: white;">
+            <p>&copy; 2019 <b style="color: #FFC107;">ASIA<span style="color: #6e707e;">FASHION</span></b>. All rights reserved | Design by <i><b>Asia Rahman</b></i></p>
         </div>
     </div>
 </section>
