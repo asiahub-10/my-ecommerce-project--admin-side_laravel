@@ -38,7 +38,7 @@ class Order extends Model
 
     public static function orderMail($request) {
         $customer = Customer::find($request->customerId);
-        $order = Order::orderBy('id', 'DESC')->first();
+        $order = Order::where('customer_id', $request->customerId)->orderBy('id', 'DESC')->first();
         $data = [
           'customer'    =>  $customer,
           'order'       =>  $order

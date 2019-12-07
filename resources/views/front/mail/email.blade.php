@@ -70,7 +70,7 @@
 
 <body>
 
-<section style="width: 80%; margin: auto;">
+<section style="width: 80%; margin: auto; background-color: #f8f9fa;" >
     <div class="container-fluid bg" style="padding-top: 50px; padding-bottom: 20px;">
         <div class="row" style="text-align: center">
             <div class="mx-auto mb-5 mt-4">
@@ -96,15 +96,18 @@
                 <table>
                     <tr>
                         <td>Order Id:</td>
-                        <td>$</td>
+                        <td>{{ $order->id }}</td>
                     </tr>
                     <tr>
                         <td>Order Date:</td>
-                        <td>5/12/19</td>
+{{--                        <td>{{ $order->created_at->toDateString() }}</td>--}}
+                        <td>{{ $order->created_at->format('d/m/Y') }}</td>
                     </tr>
                     <tr>
                         <td>Order Total:</td>
-                        <td>&#2547; 1000</td>
+                        {{--<td>&#2547; {{ number_format($order->order_total) }}</td>--}}
+                        {{--<td>&#2547; {{ number_format((float)$order->order_total, 2, '.', '') }}</td>--}}
+                        <td>&#2547; {{ number_format($order->order_total, 2) }}</td>
                     </tr>
                 </table>
             </div>
