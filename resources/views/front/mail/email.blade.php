@@ -70,7 +70,7 @@
 
 <body>
 
-<section style="border: #f69177 solid 8px;">
+<section style="width: 80%; margin: auto;">
     <div class="container-fluid bg" style="padding-top: 50px; padding-bottom: 20px;">
         <div class="row" style="text-align: center">
             <div class="mx-auto mb-5 mt-4">
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="mt-5 mb-4 text-muted font-weight-bold text-justify font-italic" style="margin: 30px 0; font-size: 20px; font-weight: bold; color: #6c757d; text-align: justify; line-height: 30px;">
 
         </div>
@@ -96,7 +96,7 @@
                 <table>
                     <tr>
                         <td>Order Id:</td>
-                        <td>5</td>
+                        <td>$</td>
                     </tr>
                     <tr>
                         <td>Order Date:</td>
@@ -164,7 +164,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="text-color">Item Summary:</h3>

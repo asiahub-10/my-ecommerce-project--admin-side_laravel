@@ -25,13 +25,38 @@ class Order extends Model
 
     }
 
+    public function customer() {
+        return $this->belongsTo('App\Customer', 'id', 'customer_id');
+    }
+
+    public static function mailView() {
+        $order = Order::orderBy('id', 'DESC')->first();
+        return view('front.mail.order-confirm', [
+            'order' =>  $order
+        ]);
+    }
+
     public static function orderMail($request) {
         $customer = Customer::find($request->customerId);
-        $data = $customer->toArray();
+        $order = Order::orderBy('id', 'DESC')->first();
+        $data = [
+          'customer'    =>  $customer,
+          'order'       =>  $order
+        ];
 
         Mail::send('front.mail.order-confirm', $data, function ($message) use($data) {
-            $message->to($data['email']);
+            $message->to($data['customer']->email);
             $message->subject('Order Confirmation Mail');
         });
+
+
+
+//        $customer = Customer::find($request->customerId);
+//        $data = $customer->toArray();
+//
+//        Mail::send('front.mail.order-confirm', $data, function ($message) use($data) {
+//            $message->to($data['email']);
+//            $message->subject('Order Confirmation Mail');
+//        });
     }
 }
