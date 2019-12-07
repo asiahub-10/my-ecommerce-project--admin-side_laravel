@@ -27,7 +27,7 @@
             margin: auto;
         }
         .container{
-            width: 85%;
+            width: 95%;
             height: auto;
             margin: auto;
         }
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="mt-5 mb-4 text-muted font-weight-bold text-justify font-italic" style="margin: 30px 0; font-size: 20px; font-weight: bold; color: #6c757d; text-align: justify; line-height: 30px;">
 
         </div>
@@ -120,23 +120,15 @@
                         <tbody>
                         <tr>
                             <td>Name:</td>
-                            <td>5</td>
+                            <td>{{ $customer->first_name }} {{ $customer->last_name }}</td>
                         </tr>
                         <tr>
                             <td>Mobile No:</td>
-                            <td>5/12/19</td>
+                            <td>{{ $customer->mobile }}</td>
                         </tr>
                         <tr>
                             <td>Address:</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>Tk. 1000</td>
+                            <td>{{ $customer->address }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -147,19 +139,15 @@
                         <tbody>
                         <tr>
                             <td>Name:</td>
-                            <td>5</td>
+                            <td>{{ $shipping->name }}</td>
                         </tr>
                         <tr>
                             <td>Mobile No:</td>
-                            <td>5/12/19</td>
+                            <td>{{ $shipping->mobile }}</td>
                         </tr>
                         <tr>
                             <td>Address:</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>Tk. 1000</td>
+                            <td>{{ $shipping->address }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -167,37 +155,43 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="text-color">Item Summary:</h3>
                 <table width="100%">
                     <tr >
                         <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">SL No.</th>
-                        <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">Item Image</th>
+                        {{--<th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">Item Image</th>--}}
                         <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;">Item Detail</th>
                         <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;" class="text-right">Total (BDT)</th>
                     </tr>
+                    @php($i = 1)
+                    @foreach($items as $item)
+                        <tr>
+                            <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: center;" >{{ $i++ }}</td>
+                            {{--<td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >--}}
+                                {{--<img src="{{ asset($item->product->product_image) }}" alt="Product Image"/>--}}
+                            {{--</td>--}}
+                            <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >
+                                <p style="font-size: medium; margin: 0">{{ $item->product_name }}</p>
+                                <p style="margin: 0;"><i>Price: </i>&#2547; {{ number_format($item->product_price, 2) }}</p>
+                                <p style="margin: 0;"><i>Quantity: </i>{{ $item->product_quantity }}</p>
+                            </td>
+                            <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: right; " >&#2547; f</td>
+                        </tr>
+                    @endforeach
                     <tr>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >fghgfh</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >ghj</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; " >fgjfj</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: right; " >&#2547; f</td>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Subtotal (2 items):</td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Tax:</td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;">Order Total:</td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;"><span style="border-bottom: 6px #6e707e double;">&#2547; 100</span></td>

@@ -8,9 +8,10 @@ class OrderDetail extends Model
 {
     protected $fillable =['order_id', 'product_id', 'product_name', 'product_price', 'product_quantity'];
 
-    public function products()
+    public function product()
     {
-        return $this->hasMany('App\Product', 'id', 'product_id');
+//        return $this->belongsTo('App\Product', 'id', 'product_id');
+        return $this->belongsTo('App\Product');
     }
 
     public static function saveOrderDetail($request)

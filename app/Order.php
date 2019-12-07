@@ -9,7 +9,8 @@ class Order extends Model
 {
     protected $fillable =['customer_id', 'shipping_id', 'order_total', 'order_status'];
 
-    public static function customerOrder($request) {
+    public static function customerOrder($request)
+    {
         $customerId = Customer::find($request->customerId);
         $shippingId = Shipping::where('name', $request->shipping['name'])
                                 ->where('mobile', $request->shipping['mobile'])
@@ -25,23 +26,22 @@ class Order extends Model
 
     }
 
-    public function customer() {
-        return $this->belongsTo('App\Customer', 'id', 'customer_id');
-    }
+//    public function customer() {
+//        return $this->belongsTo('App\Customer', 'id', 'customer_id');
+//    }
 
-    public static function mailView() {
-        $order = Order::orderBy('id', 'DESC')->first();
-        return view('front.mail.order-confirm', [
-            'order' =>  $order
-        ]);
-    }
+    public static function orderMail($request)
+    {
+        $customer   = Customer::find($request->customerId);
+        $order      = Order::where('customer_id', $request->customerId)->orderBy('id', 'DESC')->first();
+        $shipping   = Shipping::where('id', $order->shipping_id)->first();
+        $items      = OrderDetail::where('order_id', $order->id)->get();
 
-    public static function orderMail($request) {
-        $customer = Customer::find($request->customerId);
-        $order = Order::where('customer_id', $request->customerId)->orderBy('id', 'DESC')->first();
         $data = [
           'customer'    =>  $customer,
-          'order'       =>  $order
+          'order'       =>  $order,
+          'shipping'    =>  $shipping,
+          'items'       =>  $items
         ];
 
         Mail::send('front.mail.order-confirm', $data, function ($message) use($data) {

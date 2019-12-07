@@ -16,12 +16,18 @@ class Shipping extends Model
 //        $shipping->save();
 //    }
 //
-    public static function saveShippingInfo($request) {
+    public static function saveShippingInfo($request)
+    {
         $shipping = new Shipping();
         $shipping->name     = $request->shipping['name'];
         $shipping->mobile   = $request->shipping['mobile'];
         $shipping->address  = $request->shipping['address'];
         $shipping->save();
     }
+
+//    public function order()
+//    {
+//        return $this->belongsTo('App\Order', 'id', 'shipping_id');
+//    }
 
 }

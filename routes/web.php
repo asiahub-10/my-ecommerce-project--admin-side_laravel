@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('admin.login.login');
 });
 
-Route::get('/order', function () {
-    return view('front.mail.order-confirm');
-});
+//Route::get('/order', function () {
+//    return view('front.mail.order-confirm');
+//});
 
 
 
