@@ -14,6 +14,7 @@ class CustomerController extends Controller
             return response()->json(['status'=>'error', 'message'=>'This email exists'], 401);
         } else {
             Customer::saveCustomerInfo($request);
+            Customer::customerRegisterMail($request);
             return response()->json(['status'=>'success', 'message'=>'Successfully Registered'], 200);
         }
 

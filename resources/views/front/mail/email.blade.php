@@ -167,6 +167,7 @@
                         <th style="border-bottom: 3px solid #ced4da; padding-bottom: 8px; color:#6e707e;" class="text-right">Total (BDT)</th>
                     </tr>
                     @php($i = 1)
+                    @php($subTotal = 0)
                     @foreach($items as $item)
                         <tr>
                             <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: center;" >{{ $i++ }}</td>
@@ -178,23 +179,24 @@
                                 <p style="margin: 0;"><i>Price: </i>&#2547; {{ number_format($item->product_price, 2) }}</p>
                                 <p style="margin: 0;"><i>Quantity: </i>{{ $item->product_quantity }}</p>
                             </td>
-                            <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: right; " >&#2547; f</td>
+                            <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; text-align: right; " >&#2547; {{ number_format($total = $item->product_price*$item->product_quantity, 2) }}</td>
                         </tr>
+                        <?php $subTotal = $subTotal + $total ?>
                     @endforeach
                     <tr>
                         <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Subtotal (2 items):</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; {{ number_format($subTotal, 2) }}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">Tax:</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; 100</td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px;  text-align: right;">&#2547; {{ number_format($tax = $subTotal*.15, 2) }}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;">Order Total:</td>
-                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;"><span style="border-bottom: 6px #6e707e double;">&#2547; 100</span></td>
+                        <td style="border-bottom: 1px solid #ced4da; padding: 8px 5px; font-weight: bold; text-align: right;"><span style="border-bottom: 6px #6e707e double;">&#2547; {{ number_format($subTotal+$tax, 2) }}</span></td>
                     </tr>
                 </table>
             </div>
