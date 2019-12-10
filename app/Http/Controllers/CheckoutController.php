@@ -9,6 +9,7 @@ class CheckoutController extends Controller
 {
     public function getCustomerId(Request $request) {
         Customer::saveCustomerInfo($request);
+        Customer::customerRegisterMail($request);
         $customerId = Customer::where('email', $request->email)->select('id')->first();
         return response()->json(['status'=>'success', 'customer'=>$customerId], 200);
     }

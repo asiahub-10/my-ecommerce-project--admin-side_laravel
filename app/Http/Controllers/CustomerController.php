@@ -11,7 +11,7 @@ class CustomerController extends Controller
     public function newRegister(Request $request) {
         $customerEmail = Customer::where('email', $request->email)->first();
         if ($customerEmail) {
-            return response()->json(['status'=>'error', 'message'=>'This email exists'], 401);
+            return response()->json(['status'=>'error', 'message'=>'This email exists. Please try another.'], 401);
         } else {
             Customer::saveCustomerInfo($request);
             Customer::customerRegisterMail($request);
