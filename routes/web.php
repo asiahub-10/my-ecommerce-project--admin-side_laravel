@@ -261,6 +261,14 @@ Route::post('/delete-slider', [
 ]);
 
 
+//============================
+//          Order
+//============================
+
+Route::get('/manage-order', [
+    'uses'  =>  'ManageOrderController@manageOrder',
+    'as'    =>  'manage-orders'
+]);
 
 
 

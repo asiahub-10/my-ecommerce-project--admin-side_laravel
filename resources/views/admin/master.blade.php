@@ -22,6 +22,10 @@
     <link rel="{{ asset('/') }}admin/ckeditor/samples/stylesheet" href="css/samples.css">
     <link rel="{{ asset('/') }}admin/ckeditor/samples/stylesheet" href="toolbarconfigurator/lib/codemirror/neo.css">
 
+    <!-- Ajax table -->
+    <link rel="stylesheet" href="{{ asset('/') }}admin/ajax-table/css/dataTables.bootstrap4.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}admin/ajax-table/css/style.min.css" />
+
     <style>
         .scroll-to-top {
             position: fixed;
@@ -125,6 +129,13 @@
 <script src="{{ asset('/') }}admin/js/demo/chart-pie-demo.js"></script>
 <script>
     initSample();
+</script>
+
+<!-- Ajax table -->
+<script src="{{ asset('/') }}admin/ajax-table/js/jquery.min.js"></script>
+<script src="{{ asset('/') }}admin/ajax-table/js/datatables.min.js"></script>
+<script>
+    $('#zero_config').DataTable();
 </script>
 
 </body>

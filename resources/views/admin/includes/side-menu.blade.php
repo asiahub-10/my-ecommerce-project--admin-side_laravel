@@ -201,7 +201,7 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link dropdown-button" href="{{ route('manage-order') }}">
+        <a class="nav-link dropdown-button" href="{{ route('manage-orders') }}">
             <i class="far fa-calendar-check"></i>
             <span>Manage Order</span></a>
     </li>
