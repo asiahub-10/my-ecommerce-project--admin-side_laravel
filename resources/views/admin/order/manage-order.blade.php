@@ -50,8 +50,8 @@
                             <td>{{ $order->payment->payment_type }}</td>
                             <td>{{ $order->payment->payment_status }}</td>
                             <td class="custom-control-inline">
-                                <a class="btn btn-sm rounded mr-1 btn-success" title="View Order Details" href=""><i class="fas fa-search-plus"></i></a>
-                                <a class="btn btn-sm rounded mr-1 btn-primary" title="View Order Invoice" href=""><i class="fas fa-file-invoice"></i></a>
+                                <a class="btn btn-sm rounded mr-1 btn-success" title="View Order Details" href="{{ route('view-order-detail', ['id'=>$order->id]) }}"><i class="fas fa-search-plus"></i></a>
+                                <a class="btn btn-sm rounded mr-1 btn-primary" title="View Order Invoice" href="{{ route('view-order-invoice', ['id'=>$order->id]) }}"><i class="fas fa-file-invoice"></i></a>
                                 <a class="btn btn-sm rounded mr-1 btn-info" title="Download Order Invoice" href=""><i class="fas fa-download"></i></a>
                                 <a class="btn btn-sm rounded mr-1 btn-warning" title="Edit Order" href=""><i class="fas fa-edit"></i></a>
                                 <a class="btn btn-sm rounded btn-danger" title="Delete Order" href=""><i class="fas fa-trash-alt"></i></a>

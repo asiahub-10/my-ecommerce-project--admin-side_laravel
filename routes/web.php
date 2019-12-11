@@ -270,6 +270,16 @@ Route::get('/manage-order', [
     'as'    =>  'manage-orders'
 ]);
 
+Route::get('/order-detail/{id}', [
+    'uses'  =>  'ManageOrderController@orderDetail',
+    'as'    =>  'view-order-detail'
+]);
+
+Route::get('/order-invoice/{id}', [
+    'uses'  =>  'ManageOrderController@orderInvoice',
+    'as'    =>  'view-order-invoice'
+]);
+
 
 
 

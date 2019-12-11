@@ -35,15 +35,16 @@
             width: 2.75rem;
             height: 2.75rem;
             text-align: center;
-            color: #7B7699;
+            /*color: #7B7699;*/
+            color: #808699;
             /*background: rgba(90, 92, 105, 0.5);*/
             /*text-shadow: -1px -3px 5px #000000;*/
-            text-shadow: -5px -3px 4px #ffffff, -5px 0 4px #000000;
+            /*text-shadow: -5px -3px 4px #ffffff, -5px 0 4px #000000;*/
             line-height: 46px;
             /*font-size: 40px;*/
         }
         .scroll-to-top:hover {
-            color: #808699;
+            color: #adb5bd;
         }
     </style>
 
@@ -88,7 +89,8 @@
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top bg-transparent" href="#page-top">
     {{--<i class="fas fa-angle-up"></i>--}}
-    <i class="fas fa-3x fa-rocket" style="transform: rotate(-45deg)"></i>
+    {{--<i class="fas fa-3x fa-rocket" style="transform: rotate(-45deg)"></i>--}}
+    <i class="fas fa-3x fa-arrow-circle-up"></i>
     {{--<i class="fas fa-fighter-jet" style="transform: rotate(-90deg)"></i>--}}
 </a>
 
