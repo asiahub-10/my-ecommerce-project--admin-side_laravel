@@ -20,4 +20,5 @@ class OrderController extends Controller
         $customerEmail = Customer::find($request->customerId)->email;
         return response()->json(['status'=>'success', 'message'=>'Thank you for your order.', 'email'=>$customerEmail], 200);
     }
+
 }

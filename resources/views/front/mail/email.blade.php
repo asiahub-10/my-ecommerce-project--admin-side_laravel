@@ -96,7 +96,7 @@
                 <table>
                     <tr>
                         <td>Order Id:</td>
-                        <td>{{ $order->id }}</td>
+                        <td>{{ sprintf("%05d", $order->id) }}</td>
                     </tr>
                     <tr>
                         <td>Order Date:</td>

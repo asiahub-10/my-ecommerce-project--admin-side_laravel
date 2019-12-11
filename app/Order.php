@@ -26,9 +26,15 @@ class Order extends Model
 
     }
 
-//    public function customer() {
-//        return $this->belongsTo('App\Customer', 'id', 'customer_id');
-//    }
+    public function payment()
+    {
+        return $this->belongsTo('App\Payment', 'id', 'order_id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
 
     public static function orderMail($request)
     {
@@ -48,15 +54,5 @@ class Order extends Model
             $message->to($data['customer']->email);
             $message->subject('Order Confirmation Mail');
         });
-
-
-
-//        $customer = Customer::find($request->customerId);
-//        $data = $customer->toArray();
-//
-//        Mail::send('front.mail.order-confirm', $data, function ($message) use($data) {
-//            $message->to($data['email']);
-//            $message->subject('Order Confirmation Mail');
-//        });
     }
 }
