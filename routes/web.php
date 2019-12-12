@@ -280,6 +280,21 @@ Route::get('/order-invoice/{id}', [
     'as'    =>  'view-order-invoice'
 ]);
 
+Route::get('/order-invoice-download/{id}', [
+    'uses'  =>  'ManageOrderController@invoiceDownload',
+    'as'    =>  'download-order-invoice'
+]);
+
+Route::get('/edit-order/{id}', [
+    'uses'  =>  'ManageOrderController@editOrder',
+    'as'    =>  'edit-order-detail'
+]);
+
+Route::post('/update-order', [
+    'uses'  =>  'ManageOrderController@updateOrder',
+    'as'    =>  'update-order-detail'
+]);
+
 
 
 
