@@ -7,113 +7,100 @@
 @section('body')
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 col-lg-10 col-xl-8 mx-auto">
                 {{ Form::open(['route'=>'update-order-detail', 'method'=>'POST']) }}
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="bg-gradient-info text-light text-uppercase">
-                            <tr>
-                                <th colspan="2"><h4 style="font-size: large;" class="mb-0 text-center">Order Information</h4></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="font-weight-bold">Order No</td>
-                                <td>
-                                    <input class="bg-transparent border-0 shadow-none" type="number" readonly value="{{ sprintf('%05d', $order->id) }}"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Order Total</td>
-                                <td>
-                                    <span>&#2547;</span>
-                                    <input name="order_total" class="bg-transparent border-0 shadow-none" type="number" value="{{ $order->order_total }}"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Order Status</td>
-                                <td><input type="text" name="order_status" value="{{ $order->order_status }}" class="bg-transparent border-0 shadow-none"/></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">Order Information</h4>
+                    <div class="form-group row">
+                        <label class="col-md-3">Order No</label>
+                        <div class="col-md-9">
+                            <input type="number" readonly name="order_id" class="form-control" value="{{ $order->id }}"/>
+                        </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="bg-gradient-info text-light text-uppercase">
-                            <tr>
-                                <th colspan="2"><h4 style="font-size: large;" class="mb-0 text-center">customer and billing information</h4></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="font-weight-bold">Customer Name</td>
-                                <td>{{ $customer->first_name }} {{ $customer->last_name }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Phone Number</td>
-                                <td>{{ $customer->mobile }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Email Address</td>
-                                <td>{{ $customer->email }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Mailing Address</td>
-                                <td>{{ $customer->address }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div class="form-group row">
+                        <label class="col-md-3">Order Total</label>
+                        <div class="col-md-9">
+                            <input type="number" readonly class="form-control" value="{{ $order->order_total }}"/>
+                        </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="bg-gradient-info text-light text-uppercase">
-                            <tr>
-                                <th colspan="2"><h4 style="font-size: large;" class="mb-0 text-center">shipping information</h4></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="font-weight-bold">Name</td>
-                                <td>{{ $shipping->name }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Phone Number</td>
-                                <td>{{ $shipping->mobile }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Shipping Address</td>
-                                <td>{{ $shipping->address }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div class="form-group row">
+                        <label class="col-md-3">Order Status</label>
+                        <div class="col-md-9">
+                            <select name="order_status" class="custom-select">
+                                <option value="Pending" {{ value('Pending') == $order->order_status ? 'selected' : '' }}>Pending</option>
+                                <option value="Delivered" {{ value('Delivered') == $order->order_status ? 'selected' : '' }}>Delivered</option>
+                                <option value="Canceled" {{ value('Canceled') == $order->order_status ? 'selected' : '' }}>Canceled</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="bg-gradient-info text-light text-uppercase">
-                            <tr>
-                                <th colspan="2"><h4 style="font-size: large;" class="mb-0 text-center">payment information</h4></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="font-weight-bold">Payment Type</td>
-                                <td>{{ $payment->payment_type }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-weight-bold">Payment Status</td>
-                                <td>{{ $payment->payment_status }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">customer and billing information</h4>
+                    <div class="form-group row">
+                        <label class="col-md-3">Customer Name</label>
+                        <div class="col-md-9">
+                            <input type="text" readonly class="form-control" value="{{ $customer->first_name }} {{ $customer->last_name }}"/>
+                            <input type="hidden" name="customer_id" class="form-control" value="{{ $customer->id }}"/>
+                        </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Phone Number</label>
+                        <div class="col-md-9">
+                            <input type="number" name="customer_mobile" class="form-control" value="{{ $customer->mobile }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Email Address</label>
+                        <div class="col-md-9">
+                            <input type="email" readonly class="form-control" value="{{ $customer->email }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Mailing Address</label>
+                        <div class="col-md-9">
+                            <input type="text" name="customer_address" class="form-control" value="{{ $customer->address }}"/>
+                        </div>
+                    </div>
+                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">shipping information</h4>
+                    <div class="form-group row">
+                        <label class="col-md-3">Name</label>
+                        <div class="col-md-9">
+                            <input type="text" name="name" class="form-control" value="{{ $shipping->name }}"/>
+                            <input type="hidden" name="shipping_id" class="form-control" value="{{ $shipping->id }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Phone Number</label>
+                        <div class="col-md-9">
+                            <input type="number" name="mobile" class="form-control" value="{{ $shipping->mobile }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Shipping Address</label>
+                        <div class="col-md-9">
+                            <input type="text" name="address" class="form-control" value="{{ $shipping->address }}"/>
+                        </div>
+                    </div>
+                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">payment information</h4>
+                    <div class="form-group row">
+                        <label class="col-md-3">Payment Type</label>
+                        <div class="col-md-9">
+                            <input type="text" readonly class="form-control" value="{{ $payment->payment_type }}"/>
+                            <input type="hidden" name="payment_id" class="form-control" value="{{ $payment->id }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Payment Status</label>
+                        <div class="col-md-9">
+                            <select name="payment_status" class="custom-select">
+                                <option value="Pending" {{ value('Pending') == $payment->payment_status ? 'selected' : '' }}>Pending</option>
+                                <option value="Paid" {{ value('Paid') == $payment->payment_status ? 'selected' : '' }}>Paid</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: large;" class="mb-0 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">product information</h4>
+
                     <div class="table-responsive text-center">
                         <table class="table table-bordered">
-                            <thead class="bg-gradient-info text-light text-uppercase">
-                            <tr>
-                                <th colspan="6"><h4 style="font-size: large;" class="mb-0 text-center">Product information</h4></th>
-                            </tr>
-                            </thead>
                             <thead class="bg-gray-200">
                             <tr>
                                 <th class="font-weight-bold">SL No.</th>
@@ -139,6 +126,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="text-center mb-5 mt-2">
+                    <input type="submit" class="btn btn-outline-info btn-lg px-5" value="Save Changes"/>
                 </div>
                 {{ Form::close() }}
             </div>

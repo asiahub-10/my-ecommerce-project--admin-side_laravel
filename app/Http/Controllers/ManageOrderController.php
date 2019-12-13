@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\ManageOrder;
 use App\Order;
 use App\OrderDetail;
 use App\Payment;
@@ -92,7 +93,11 @@ class ManageOrderController extends Controller
 
     public function updateOrder(Request $request)
     {
-
+        ManageOrder::updateOrderStatus($request);
+        ManageOrder::updateCustomerInfo($request);
+        ManageOrder::updateShippingInfo($request);
+        ManageOrder::updatePaymentStatus($request);
+        return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
     }
 
 }

@@ -22,11 +22,23 @@
         .paginate_button {
             box-shadow: none;
         }
+        .success {
+            border-radius: 50%;
+            border: 2px solid #d6d8db;
+        }
     </style>
-    <div class="card-body">
+    <div class="">
+
+        @if(Session::has('message'))
+            <div class="card-body text-center pb-0">
+                <i class="fas fa-2x fa-check text-info p-2 success"></i>
+                <h4 class="text-info font-weight-bold ">{{ Session::get('message') }}</h4>
+            </div>
+        @endif
+
         <div class="mt-3 mb-4">
             <div class="table-responsive text-center">
-                <table id="zero_config" class="table table-striped table-bordered table-light table-hover">
+                <table id="zero_config" class="table table-striped table-light table-hover">
                     <thead class="bg-gradient-info text-light">
                     <tr>
                         <th>Order Id</th>
