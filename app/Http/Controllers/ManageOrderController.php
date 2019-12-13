@@ -100,6 +100,28 @@ class ManageOrderController extends Controller
         return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
     }
 
+//    public function updateOrder(Request $request)
+//    {
+//        ManageOrder::updateCustomerInfo($request);
+//        ManageOrder::updateShippingInfo($request);
+//        ManageOrder::updatePaymentStatus($request);
+//        $payment = Payment::find($request->payment_id);
+//        if ($payment->payment_status == 'Paid' && $request->order_status == 'Cancelled')
+//        {
+//            return redirect('/manage-order')->with('errorMessage', 'As the payment of this order has been made already, this order can not be cancelled.');
+//        }
+//        else
+//        {
+//            ManageOrder::updateOrderStatus($request);
+//            return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
+//        }
+//    }
+
+    public function deleteOrder(Request $request)
+    {
+//        ManageOrder::deleteShippingInfo($request);
+    }
+
 }
 
 

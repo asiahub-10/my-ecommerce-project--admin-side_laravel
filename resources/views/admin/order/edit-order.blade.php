@@ -29,7 +29,7 @@
                             <select name="order_status" class="custom-select">
                                 <option value="Pending" {{ value('Pending') == $order->order_status ? 'selected' : '' }}>Pending</option>
                                 <option value="Delivered" {{ value('Delivered') == $order->order_status ? 'selected' : '' }}>Delivered</option>
-                                <option value="Canceled" {{ value('Canceled') == $order->order_status ? 'selected' : '' }}>Canceled</option>
+                                <option value="Cancelled" {{ value('Cancelled') == $order->order_status ? 'selected' : '' }}>Cancelled</option>
                             </select>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                             @foreach($products as $product)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->product_id }}</td>
                                     <td>{{ $product->product_name }}</td>
                                     <td>&#2547; {{ number_format($product->product_price, 2) }}</td>
                                     <td>{{ $product->product_quantity }}</td>

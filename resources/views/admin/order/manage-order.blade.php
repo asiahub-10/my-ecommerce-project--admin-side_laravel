@@ -35,6 +35,12 @@
                 <h4 class="text-info font-weight-bold ">{{ Session::get('message') }}</h4>
             </div>
         @endif
+        @if(Session::has('errorMessage'))
+            <div class="card-body text-center pb-0">
+                <i class="fas fa-2x fa-exclamation-triangle text-danger p-2 success"></i>
+                <h4 class="text-info font-weight-bold ">{{ Session::get('errorMessage') }}</h4>
+            </div>
+        @endif
 
         <div class="mt-3 mb-4">
             <div class="table-responsive text-center">
@@ -66,7 +72,18 @@
                                 <a class="btn btn-sm rounded mr-1 btn-primary" title="View Order Invoice" href="{{ route('view-order-invoice', ['id'=>$order->id]) }}"><i class="fas fa-file-invoice"></i></a>
                                 <a class="btn btn-sm rounded mr-1 btn-info" title="Download Order Invoice" href="{{ route('download-order-invoice', ['id'=>$order->id]) }}"><i class="fas fa-download"></i></a>
                                 <a class="btn btn-sm rounded mr-1 btn-warning" title="Edit Order" href="{{ route('edit-order-detail', ['id'=>$order->id]) }}"><i class="fas fa-edit"></i></a>
-                                <a class="btn btn-sm rounded btn-danger" title="Delete Order" href=""><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-sm rounded btn-danger" title="Delete Order" href="#" onclick="
+                                    event.preventDefault();
+                                    var check = confirm('Are you sure to delete this order data?');
+                                    if (check)
+                                        {
+                                            document.getElementById('deleteOrderForm{{ $order->id }}').submit();
+                                        }
+                                "><i class="fas fa-trash-alt"></i></a>
+                                <form id="deleteOrderForm{{ $order->id }}" action="{{ route('delete-order-info') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="order_id" value="{{ $order->id }}" />
+                                </form>
                             </td>
                         </tr>
                     @endforeach

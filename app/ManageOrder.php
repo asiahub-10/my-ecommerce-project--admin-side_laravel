@@ -8,13 +8,24 @@ class ManageOrder extends Model
 {
     public static function updateOrderStatus($request)
     {
-        $order = Order::find($request->order_id);
+        $order      = Order::find($request->order_id);
+        $orderItems = OrderDetail::where('order_id', $order->id)->get();
+        foreach ($orderItems as $orderItem)
+        {
+            $product = Product::find($orderItem->product_id);
+            if ($order->order_status == 'Pending' && $request->order_status == 'Cancelled')
+            {
+                $product->product_quantity      =   $product->product_quantity + $orderItem->product_quantity;
+                $product->update();
+            }
+            elseif ($order->order_status == 'Cancelled' && $request->order_status == 'Pending')
+            {
+                $product->product_quantity      =   $product->product_quantity - $orderItem->product_quantity;
+                $product->update();
+            }
+        }
         $order->order_status    = $request->order_status;
         $order->update();
-
-        if ($order->order_status == 'Canceled'){
-
-        }
     }
 
     public static function updateCustomerInfo($request)
@@ -41,6 +52,22 @@ class ManageOrder extends Model
         $payment->update();
     }
 
+    public static function deleteShippingInfo($request)
+    {
+        $shipping = Shipping::where('id', Order::find($request->order_id)->shipping_id)->first();
+        $shipping->delete();
+    }
+
+    public static function deleteOrderDetailInfo($request)
+    {
+
+    }
+
+    public static function deletePaymentInfo($request)
+    {
+        $shipping = Shipping::where('id', Order::find($request->order_id)->shipping_id)->first();
+        $shipping->delete();
+    }
 
 }
 

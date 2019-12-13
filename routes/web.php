@@ -295,6 +295,11 @@ Route::post('/update-order', [
     'as'    =>  'update-order-detail'
 ]);
 
+Route::post('/delete-order', [
+    'uses'  =>  'ManageOrderController@deleteOrder',
+    'as'    =>  'delete-order-info'
+]);
+
 
 
 
