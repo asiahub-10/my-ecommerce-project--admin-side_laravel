@@ -14,7 +14,8 @@
             }
         </style>
         @if(Session::has('message'))
-            <div class="card-body text-center pb-0">
+            <div class="card-body text-center pb-0 alert">
+                <button type="button" class="close text-danger" data-dismiss="alert">x</button>
                 <i class="fas fa-2x fa-check text-info p-2 success"></i>
                 <h4 class="text-info font-weight-bold ">{{ Session::get('message') }}</h4>
             </div>

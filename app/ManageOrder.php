@@ -58,16 +58,35 @@ class ManageOrder extends Model
         $shipping->delete();
     }
 
-    public static function deleteOrderDetailInfo($request)
-    {
-
-    }
-
     public static function deletePaymentInfo($request)
     {
-        $shipping = Shipping::where('id', Order::find($request->order_id)->shipping_id)->first();
-        $shipping->delete();
+        $payment = Payment::where('order_id', $request->order_id)->first();
+        $payment->delete();
     }
+
+    public static function deleteOrderDetailInfo($request)
+    {
+        $orderItems = OrderDetail::where('order_id', $request->order_id)->get();
+        $order      = Order::find($request->order_id);
+        foreach ($orderItems as $orderItem)
+        {
+            $product = Product::find($orderItem->product_id);
+            if ($order->order_status == 'Pending')
+            {
+                $product->product_quantity = $product->product_quantity + $orderItem->product_quantity;
+                $product->update();
+            }
+            $orderItem->delete();
+        }
+    }
+
+    public static function deleteOrderInfo($request)
+    {
+        $order = Order::find($request->order_id);
+        $order->delete();
+    }
+
+
 
 }
 

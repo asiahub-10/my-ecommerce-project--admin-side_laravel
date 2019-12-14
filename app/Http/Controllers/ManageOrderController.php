@@ -93,33 +93,40 @@ class ManageOrderController extends Controller
 
     public function updateOrder(Request $request)
     {
-        ManageOrder::updateOrderStatus($request);
         ManageOrder::updateCustomerInfo($request);
         ManageOrder::updateShippingInfo($request);
         ManageOrder::updatePaymentStatus($request);
-        return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
+        $payment = Payment::find($request->payment_id);
+        if ($payment->payment_status == 'Paid' && $request->order_status == 'Cancelled')
+        {
+            return redirect('/manage-order')->with('errorMessage', 'As the payment of this order has been made already, this order cannot be cancelled.');
+        }
+        elseif ($payment->payment_status == 'Pending' && $request->order_status == 'Delivered')
+        {
+            return redirect('/manage-order')->with('errorMessage', 'Delivery cannot be made while the payment is pending.');
+        }
+        else
+        {
+            ManageOrder::updateOrderStatus($request);
+            return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
+        }
     }
-
-//    public function updateOrder(Request $request)
-//    {
-//        ManageOrder::updateCustomerInfo($request);
-//        ManageOrder::updateShippingInfo($request);
-//        ManageOrder::updatePaymentStatus($request);
-//        $payment = Payment::find($request->payment_id);
-//        if ($payment->payment_status == 'Paid' && $request->order_status == 'Cancelled')
-//        {
-//            return redirect('/manage-order')->with('errorMessage', 'As the payment of this order has been made already, this order can not be cancelled.');
-//        }
-//        else
-//        {
-//            ManageOrder::updateOrderStatus($request);
-//            return redirect('/manage-order')->with('message', 'Order details information updated successfully.');
-//        }
-//    }
 
     public function deleteOrder(Request $request)
     {
-//        ManageOrder::deleteShippingInfo($request);
+        $payment    = Payment::where('order_id', $request->order_id)->first();
+        if ($payment->payment_status == 'Paid')
+        {
+            return redirect('/manage-order')->with('errorMessage', 'As the payment of this order has been made already, this order data cannot be deleted.');
+        }
+        else
+        {
+            ManageOrder::deleteShippingInfo($request);
+            ManageOrder::deletePaymentInfo($request);
+            ManageOrder::deleteOrderDetailInfo($request);
+            ManageOrder::deleteOrderInfo($request);
+            return redirect('/manage-order')->with('message', 'Order data has been deleted successfully.');
+        }
     }
 
 }

@@ -24,23 +24,26 @@
         }
         .success {
             border-radius: 50%;
-            border: 2px solid #d6d8db;
+            border: 3px solid #d6d8db;
         }
     </style>
     <div class="">
 
         @if(Session::has('message'))
-            <div class="card-body text-center pb-0">
+            <div class="card-body text-center pb-0 alert">
+                <button type="button" class="close text-danger" data-dismiss="alert">x</button>
                 <i class="fas fa-2x fa-check text-info p-2 success"></i>
                 <h4 class="text-info font-weight-bold ">{{ Session::get('message') }}</h4>
             </div>
         @endif
         @if(Session::has('errorMessage'))
-            <div class="card-body text-center pb-0">
-                <i class="fas fa-2x fa-exclamation-triangle text-danger p-2 success"></i>
-                <h4 class="text-info font-weight-bold ">{{ Session::get('errorMessage') }}</h4>
+            <div class="card-body text-center pb-0 alert">
+                <button type="button" class="close text-danger" data-dismiss="alert">x</button>
+                <i class="fas fa-2x fa-exclamation-triangle text-warning p-3"></i>
+                <h4 class="text-warning font-weight-bold ">{{ Session::get('errorMessage') }}</h4>
             </div>
         @endif
+
 
         <div class="mt-3 mb-4">
             <div class="table-responsive text-center">
@@ -74,7 +77,7 @@
                                 <a class="btn btn-sm rounded mr-1 btn-warning" title="Edit Order" href="{{ route('edit-order-detail', ['id'=>$order->id]) }}"><i class="fas fa-edit"></i></a>
                                 <a class="btn btn-sm rounded btn-danger" title="Delete Order" href="#" onclick="
                                     event.preventDefault();
-                                    var check = confirm('Are you sure to delete this order data?');
+                                    var check = confirm('This will permanently delete this order data.\nAre you sure to delete this???');
                                     if (check)
                                         {
                                             document.getElementById('deleteOrderForm{{ $order->id }}').submit();
