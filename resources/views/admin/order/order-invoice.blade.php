@@ -6,7 +6,7 @@
 
 @section('body')
     <div class="container my-4">
-        <div class="card-body border bg-white">
+        <div class="card-body border bg-white col-lg-10 mx-auto">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
@@ -160,7 +160,7 @@
                 {{--<i class="fa fa-barcode iconbig"></i>--}}
             {{--</div>--}}
             <div class="row pt-0">
-                <div class="card my-0">
+                <div class="my-0">
                     <div class="card-body">
                         <h5 class="font-weight-bold text-uppercase">Payment Summary</h5>
                         <table>
@@ -189,7 +189,7 @@
                 </div>
             </div>
             <hr/>
-            <div class="card ml-2 pl-1 text-center">
+            <div class="ml-2 pl-1 text-center">
                 <p class="text-uppercase mb-0 font-weight-bold">terms & conditions</p>
                 <span class="">In case of cash on delivery, you have to make full payment on cash at the time of delivery.</span>
             </div>

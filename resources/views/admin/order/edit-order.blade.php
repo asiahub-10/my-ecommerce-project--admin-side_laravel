@@ -7,10 +7,10 @@
 @section('body')
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-lg-10 col-xl-8 mx-auto">
+            <div class="col-sm-12 col-lg-9 mx-auto">
                 {{ Form::open(['route'=>'update-order-detail', 'method'=>'POST']) }}
-                <div class="card-body">
-                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">Order Information</h4>
+                <div class="card-body bg-white">
+                    <h4 style="font-size: large;" class="mb-3 bg-gradient-info text-light text-uppercase py-3 text-center">Order Information</h4>
                     <div class="form-group row">
                         <label class="col-md-3">Order No</label>
                         <div class="col-md-9">
@@ -33,7 +33,7 @@
                             </select>
                         </div>
                     </div>
-                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">customer and billing information</h4>
+                    <h4 style="font-size: large;" class="mb-3 bg-gradient-info text-light text-uppercase py-3 text-center">customer and billing information</h4>
                     <div class="form-group row">
                         <label class="col-md-3">Customer Name</label>
                         <div class="col-md-9">
@@ -59,7 +59,7 @@
                             <input type="text" name="customer_address" class="form-control" value="{{ $customer->address }}"/>
                         </div>
                     </div>
-                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">shipping information</h4>
+                    <h4 style="font-size: large;" class="mb-3 bg-gradient-info text-light text-uppercase py-3 text-center">shipping information</h4>
                     <div class="form-group row">
                         <label class="col-md-3">Name</label>
                         <div class="col-md-9">
@@ -79,7 +79,7 @@
                             <input type="text" name="address" class="form-control" value="{{ $shipping->address }}"/>
                         </div>
                     </div>
-                    <h4 style="font-size: large;" class="mb-3 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">payment information</h4>
+                    <h4 style="font-size: large;" class="mb-3 bg-gradient-info text-light text-uppercase py-3 text-center">payment information</h4>
                     <div class="form-group row">
                         <label class="col-md-3">Payment Type</label>
                         <div class="col-md-9">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <h4 style="font-size: large;" class="mb-0 bg-gray-200 border-bottom-info text-info text-uppercase py-3 text-center">product information</h4>
+                    <h4 style="font-size: large;" class="mb-0 bg-gradient-info text-light text-uppercase py-3 text-center">product information</h4>
 
                     <div class="table-responsive text-center">
                         <table class="table table-bordered">
@@ -127,7 +127,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="text-center mb-5 mt-2">
+                <div class="text-center mb-5 mt-4">
                     <input type="submit" class="btn btn-outline-info btn-lg px-5" value="Save Changes"/>
                 </div>
                 {{ Form::close() }}

@@ -48,6 +48,13 @@
     .dropdown-button:hover {
         border-left: 5px solid #d6d8db;
     }
+    .main-active {
+        color: #ffffff !important;
+        border-left: 5px solid #d6d8db;
+    }
+    .main-active i {
+        color: #ffffff !important;
+    }
     .sub-menu-item {
         border-left: 5px solid transparent;
         font-size: 14px;
@@ -57,12 +64,15 @@
     .sub-menu-item:hover {
         border-left: 5px solid #d6d8db;
     }
-    /*.sub-menu-item:focus {*/
-        /*border-left: 5px solid #d6d8db;*/
-    /*}*/
-    /*.sub-menu-item:active .dropdown-button {*/
-        /*border-left: 5px solid #d6d8db;*/
-    /*}*/
+
+    .sub-active {
+        color: #ffffff !important;
+        border-left: 5px solid #d6d8db;
+    }
+    .sub-active i {
+        color: #ffffff !important;
+    }
+
     .sidebar #sidebarToggle::after {
         content: '\f359';
         font-size: xx-large;
@@ -80,13 +90,31 @@
         /*color: white;*/
         /*border-left: 5px solid #d6d8db;*/
     /*}*/
+    /*.dropdown.active .dropdown-button {*/
+        /*background: #DA55AA;*/
+    /*}*/
+
+    /*.dropdown.active:nth-child(1) a.active {*/
+        /*color: #DAD555;*/
+    /*}*/
+
+
+    /*!* job info*!*/
+
+    /*.dropdown.active:nth-child(2) {*/
+        /*background: #bada55;*/
+    /*}*/
+
+    /*.dropdown.active:nth-child(2) a.active {*/
+        /*color: #000000;*/
+    /*}*/
 
 
 </style>
 
 
 
-<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion mb-0" id="accordionSidebar" style="box-shadow: 8px 0 8px -5px #333; z-index: 10;">
+<ul class=" navbar-nav bg-gradient-info sidebar sidebar-dark accordion mb-0" id="accordionSidebar" style="box-shadow: 8px 0 8px -5px #333; z-index: 10;">
 
     <!-- Sidebar - Brand -->
     {{--<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">--}}
@@ -122,8 +150,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link dropdown-button" href="{{ route('home') }}">
+    <li class="nav-item ">
+        <a class="nav-link dropdown-button {{ request()->is('home') ? 'main-active' : '' }}" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -134,23 +162,23 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-button py-3" href="#">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-category') || request()->is('manage-category') || request()->is('edit-category/*') ? 'main-active' : '' }}" href="#">
             <i class="fas fa-sitemap"></i>
             <span>Category</span>
             <span style="padding-right: 82px;"></span>
             <i class="fas fa-level-up-alt more-item-icon"></i>
         </a>
-        <div class="dropdown-content bg-gradient-info">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('add-category') }}">Add Category</a>
+        <div class="navbar-nav dropdown-content bg-gradient-info">
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-category') ? 'sub-active' : '' }}" href="{{ route('add-category') }}">Add Category</a>
             <hr class="sidebar-divider my-0">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('manage-category') }}">Manage Category</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-category') || request()->is('edit-category/*') ? 'sub-active' : '' }}" href="{{ route('manage-category') }}">Manage Category</a>
         </div>
     </li>
 
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-button py-3" href="#">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-brand') || request()->is('manage-brand') || request()->is('edit-brand/*') ? 'main-active' : '' }}" href="#">
             <i class="fas fa-award" style="font-size: 17px;"></i>
             <span style="padding-right: 5px;"></span>
             <span>Brand</span>
@@ -158,16 +186,16 @@
             <i class="fas fa-level-up-alt more-item-icon"></i>
         </a>
         <div class="dropdown-content bg-gradient-info">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('add-brand') }}">Add Brand</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-brand') ? 'sub-active' : '' }}" href="{{ route('add-brand') }}">Add Brand</a>
             <hr class="sidebar-divider my-0">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('manage-brand') }}">Manage Brand</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-brand') || request()->is('edit-brand/*') ? 'sub-active' : '' }}" href="{{ route('manage-brand') }}">Manage Brand</a>
         </div>
     </li>
 
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-button py-3" href="#">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-product') || request()->is('manage-product') || request()->is('edit-product/*') ? 'main-active' : '' }}" href="#">
             <i class="fas fa-tshirt"></i>
             <span style=""></span>
             <span>Product</span>
@@ -175,16 +203,16 @@
             <i class="fas fa-level-up-alt more-item-icon"></i>
         </a>
         <div class="dropdown-content bg-gradient-info">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('add-product') }}">Add Product</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-product') ? 'sub-active' : '' }}" href="{{ route('add-product') }}">Add Product</a>
             <hr class="sidebar-divider my-0">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('manage-product') }}">Manage Product</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-product') || request()->is('edit-product/*') ? 'sub-active' : '' }}" href="{{ route('manage-product') }}">Manage Product</a>
         </div>
     </li>
 
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-button py-3" href="#">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-slider') || request()->is('manage-slider') ? 'main-active' : '' }}" href="#">
             <i class="fab fa-slideshare"></i>
             <span style="padding-right: 5px;"></span>
             <span>Slider</span>
@@ -192,16 +220,16 @@
             <i class="fas fa-level-up-alt more-item-icon"></i>
         </a>
         <div class="dropdown-content bg-gradient-info">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('add-slider') }}">Add Slider</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-slider') ? 'sub-active' : '' }}" href="{{ route('add-slider') }}">Add Slider</a>
             <hr class="sidebar-divider my-0">
-            <a class="nav-link sub-menu-item pl-3" href="{{ route('manage-slider') }}">Manage Slider</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-slider') ? 'sub-active' : '' }}" href="{{ route('manage-slider') }}">Manage Slider</a>
         </div>
     </li>
 
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link dropdown-button" href="{{ route('manage-orders') }}">
+        <a class="nav-link dropdown-button {{ request()->is('manage-order') || request()->is('order-detail/*') || request()->is('order-invoice/*') || request()->is('edit-order/*') ? 'main-active' : '' }}" href="{{ route('manage-orders') }}">
             <i class="far fa-calendar-check"></i>
             <span>Manage Order</span></a>
     </li>
@@ -275,14 +303,44 @@
 
 </ul>
 
-<script>
-    $(document).ready(function(){
-        $('.sidebar').on("click", ".nav-item", function(){
-            $('.sidebar .nav-item .active').removeClass('active');
-            // $('.subMenuList').removeClass('active');
-            // $(this).closest('.nav-item').find('.nav-item').addClass('.dropdown-button');
-            // $(this).closest('.nav-item').find('.nav-link').removeClass('active');
-            $(this).addClass('active');
-        })
-    })
-</script>
+{{--<script type="text/javascript">--}}
+    {{--$(document).ready(function () {--}}
+        {{--var homeUrl = '{{ route('home') }}';--}}
+        {{--$('.dropdown a').filter(function(){--}}
+
+            {{--return $(this).attr('href') == homeUrl--}}
+            {{--// this.href == homeUrl;--}}
+
+        {{--}).addClass('active').closest('ul').parent().addClass('active');--}}
+
+    {{--});--}}
+{{--</script>--}}
+
+{{--<script type="text/javascript">--}}
+    {{--$(".dropdown a").each(function() {--}}
+        {{--if (this.href == window.location.href) {--}}
+            {{--$(this).addClass('active');--}}
+        {{--}--}}
+    {{--});--}}
+{{--</script>--}}
+{{--<script type="text/javascript">--}}
+    {{--$(document).ready(function () {--}}
+        {{--var url = window.location;--}}
+        {{--$('ul.nav li a[href="'+ url +'"]').parent().addClass('active');--}}
+        {{--$('ul.nav li a').filter(function() {--}}
+            {{--return this.href == url;--}}
+        {{--}).parent().addClass('active');--}}
+    {{--});--}}
+{{--</script>--}}
+
+{{--<script>--}}
+    {{--$(document).ready(function(){--}}
+        {{--$('.sidebar').on("click", ".nav-item", function(){--}}
+            {{--$('.sidebar .nav-item .active').removeClass('active');--}}
+            {{--// $('.subMenuList').removeClass('active');--}}
+            {{--// $(this).closest('.nav-item').find('.nav-item').addClass('.dropdown-button');--}}
+            {{--// $(this).closest('.nav-item').find('.nav-link').removeClass('active');--}}
+            {{--$(this).addClass('active');--}}
+        {{--})--}}
+    {{--})--}}
+{{--</script>--}}

@@ -7,7 +7,7 @@
 @section('body')
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-lg-9 mx-auto">
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered">
