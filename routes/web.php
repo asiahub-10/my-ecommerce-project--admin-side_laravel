@@ -1,5 +1,21 @@
 <?php
 
+//============================
+//          Error
+//============================
+
+Route::get('/404', [
+    'uses'  =>  'ExceptionController@error404',
+    'as'    =>  '404-error'
+]);
+
+Route::get('/405', [
+    'uses'  =>  'ExceptionController@error405',
+    'as'    =>  '405-error'
+]);
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +30,6 @@
 Route::get('/', function () {
     return view('admin.login.login');
 });
-
-//Route::get('/order', function () {
-//    return view('front.mail.order-confirm');
-//});
-
 
 
 //============================
