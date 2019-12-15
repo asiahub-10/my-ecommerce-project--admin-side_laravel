@@ -190,6 +190,11 @@ Route::get('/manage-product', [
     'as'    =>  'manage-product'
 ]);
 
+Route::get('/product-details/{id}', [
+    'uses'  =>  'ProductController@viewProduct',
+    'as'    =>  'view-product-detail'
+]);
+
 Route::get('/edit-product/{id}', [
     'uses'  =>  'ProductController@editProduct',
     'as'    =>  'edit-product'

@@ -6,26 +6,7 @@
 
 @section('body')
     <style>
-        #zero_config_length,  #zero_config_info{
-            text-align: left !important;
-        }
-        .page-item.active .page-link {
-            z-index: 1;
-            color: #fff;
-            background-color: #288d9c;
-            border-color: #288d9c;
-            box-shadow: none;
-        }
-        div.dataTables_wrapper div.dataTables_filter input {
-            box-shadow: none;
-        }
-        .paginate_button {
-            box-shadow: none;
-        }
-        .success {
-            border-radius: 50%;
-            border: 3px solid #d6d8db;
-        }
+
     </style>
     <div class="">
 
@@ -65,11 +46,19 @@
                         <tr>
                             <td>{{ sprintf("%05d", $order->id) }}</td>
                             <td>{{ $order->customer->first_name }} {{ $order->customer->last_name }}</td>
-                            <td>&#2547; {{ number_format($order->order_total, 2) }}</td>
+                            <td>&#2547;{{ number_format($order->order_total, 2) }}</td>
                             <td>{{ $order->created_at }}</td>
-                            <td>{{ $order->order_status }}</td>
+                            <td>
+                                @if($order->order_status == 'Delivered')
+                                    <p class="text-success">{{ $order->order_status }}</p>
+                                @elseif($order->order_status == 'Pending')
+                                    <p class="text-warning">{{ $order->order_status }}</p>
+                                @elseif($order->order_status == 'Cancelled')
+                                    <p class="text-danger">{{ $order->order_status }}</p>
+                                @endif
+                            </td>
                             <td>{{ $order->payment->payment_type }}</td>
-                            <td>{{ $order->payment->payment_status }}</td>
+                            <td class="{{ $order->payment->payment_status == 'Paid' ? 'text-success' : 'text-warning' }}">{{ $order->payment->payment_status }}</td>
                             <td class="custom-control-inline">
                                 <a class="btn btn-sm rounded mr-1 btn-success" title="View Order Details" href="{{ route('view-order-detail', ['id'=>$order->id]) }}"><i class="fas fa-search-plus"></i></a>
                                 <a class="btn btn-sm rounded mr-1 btn-primary" title="View Order Invoice" href="{{ route('view-order-invoice', ['id'=>$order->id]) }}"><i class="fas fa-file-invoice"></i></a>

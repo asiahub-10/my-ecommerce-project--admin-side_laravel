@@ -49,6 +49,26 @@
         .scroll-to-top:hover {
             color: #adb5bd;
         }
+        #zero_config_length,  #zero_config_info{
+            text-align: left !important;
+        }
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: #288d9c;
+            border-color: #288d9c;
+            box-shadow: none;
+        }
+        div.dataTables_wrapper div.dataTables_filter input {
+            box-shadow: none;
+        }
+        .paginate_button {
+            box-shadow: none;
+        }
+        .success {
+            border-radius: 50%;
+            border: 3px solid #d6d8db;
+        }
     </style>
 
 </head>

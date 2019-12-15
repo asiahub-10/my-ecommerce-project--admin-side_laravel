@@ -7,12 +7,6 @@
 @section('body')
 
     <div class="container">
-        <style>
-            .success {
-                border-radius: 50%;
-                border: 2px solid #d6d8db;
-            }
-        </style>
         @if(Session::has('message'))
             <div class="card-body text-center pb-0 alert">
                 <button type="button" class="close text-danger" data-dismiss="alert">x</button>
@@ -22,9 +16,9 @@
         @endif
 
 
-        <div class="mt-3 col-sm-12 mx-auto px-0">
+        <div class="my-3 col-sm-12 mx-auto px-0">
             <div class="table-responsive text-center">
-                <table class="table table-striped table-bordered table-light table-hover">
+                <table id="zero_config" class="table table-striped table-bordered table-light table-hover">
                     <thead class="bg-gradient-info text-light">
                     <tr>
                         <th>SL No.</th>
