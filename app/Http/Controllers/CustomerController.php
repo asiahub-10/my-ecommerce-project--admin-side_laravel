@@ -66,6 +66,62 @@ class CustomerController extends Controller
         }
     }
 
+    public function manageCustomer()
+    {
+        return view('admin.customer.manage-customer', [
+            'customers'     => Customer::all()
+        ]);
+    }
+
+    public function editCustomer($id)
+    {
+        return view('admin.customer.edit-customer', [
+            'customer'     => Customer::find($id)
+        ]);
+    }
+
+    public function updateCustomer(Request $request)
+    {
+        Customer::validateCustomerInfo($request);
+        Customer::saveUpdatedInfo($request);
+        return redirect('/manage-customer')->with('message', 'Customer info has been undated successfully.');
+    }
+
+    public function checkEmail($email, $id)
+    {
+        $email = Customer::where('email', $email)->first();
+//        $emailId = Customer::where('email', $email)->where('id', $id)->first();
+        if ($email && $email->id != $id)
+        {
+            return json_encode('This email address exists. Please use an unique email address.');
+        }
+        else
+        {
+            return json_encode('Email Available');
+        }
+    }
+
+    public function deactivateCustomer(Request $request)
+    {
+        Customer::deactivateCustomer($request);
+        return redirect('/manage-customer')->with('message', 'Account has been deactivated successfully');
+    }
+
+    public function activateCustomer(Request $request)
+    {
+        Customer::activateCustomer($request);
+        return redirect('/manage-customer')->with('message', 'Account has been activated successfully');
+    }
+
+    public function deleteCustomer(Request $request)
+    {
+        Customer::deleteCustomer($request);
+        return redirect('/manage-customer')->with('message', 'Account has been deleted successfully');
+    }
+
+
+
+
 
 
 

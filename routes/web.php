@@ -59,6 +59,16 @@ Route::post('/registered', [
     'as'    =>  'registration-complete'
 ]);
 
+Route::get('/manage-user', [
+    'uses'  =>  'UserProfileController@userList',
+    'as'    =>  'manage-user'
+]);
+
+Route::get('/view-profile/{id}', [
+    'uses'  =>  'UserProfileController@viewUser',
+    'as'    =>  'view-user-details'
+]);
+
 
 
 
@@ -315,6 +325,47 @@ Route::post('/delete-order', [
     'uses'  =>  'ManageOrderController@deleteOrder',
     'as'    =>  'delete-order-info'
 ]);
+
+
+//============================
+//          Order
+//============================
+
+Route::get('/manage-customer', [
+    'uses'  =>  'CustomerController@manageCustomer',
+    'as'    =>  'manage-customers'
+]);
+
+Route::get('/edit-customer/{id}', [
+    'uses'  =>  'CustomerController@editCustomer',
+    'as'    =>  'edit-customer-details'
+]);
+
+Route::post('/update-customer', [
+    'uses'  =>  'CustomerController@updateCustomer',
+    'as'    =>  'update-customer-details'
+]);
+
+Route::get('/customer-email-check/{email}/{id}', [
+    'uses'  =>  'CustomerController@checkEmail',
+    'as'    =>  'customer-email-check'
+]);
+
+Route::post('/customer-deactivate', [
+    'uses'  =>  'CustomerController@deactivateCustomer',
+    'as'    =>  'customer-deactivation'
+]);
+
+Route::post('/customer-activate', [
+    'uses'  =>  'CustomerController@activateCustomer',
+    'as'    =>  'customer-activation'
+]);
+
+Route::post('/customer-delete', [
+    'uses'  =>  'CustomerController@deleteCustomer',
+    'as'    =>  'customer-data-delete'
+]);
+
 
 
 

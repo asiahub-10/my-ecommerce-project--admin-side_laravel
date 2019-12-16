@@ -88,7 +88,19 @@ class UserProfileController extends Controller
         return view('admin.login.registration-complete');
     }
 
+    public function userList()
+    {
+        return view('admin.user.manage-user', [
+            'users'  => User::all()
+        ]);
+    }
 
+    public function viewUser($id)
+    {
+        return view('admin.user.view-user', [
+            'user'  => User::find($id)
+        ]);
+    }
 
 
 

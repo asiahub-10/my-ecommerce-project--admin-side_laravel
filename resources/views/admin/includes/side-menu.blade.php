@@ -124,7 +124,7 @@
         {{--<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>--}}
     {{--</a>--}}
 
-    <div class="card bg-gradient-info border-top-0 border-left-0 border-right-0" style="border-bottom: #d6d8db 8px solid;">
+    <div class="card bg-gradient-info border-top-0 border-left-0 border-right-0 mb-0" style="border-bottom: #d6d8db 8px solid;">
         <div class="sidebar-brand d-flex align-items-center justify-content-center mt-3">
             <div class="sidebar-brand-icon">
                 @if(Auth::user()->image == null)
@@ -147,7 +147,7 @@
     </div>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    {{--<hr class="sidebar-divider my-0">--}}
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item ">
@@ -211,6 +211,31 @@
 
     <hr class="sidebar-divider my-0">
 
+    <li class="nav-item">
+        <a class="nav-link dropdown-button {{ request()->is('manage-order') || request()->is('order-detail/*') || request()->is('order-invoice/*') || request()->is('edit-order/*') ? 'main-active' : '' }}" href="{{ route('manage-orders') }}">
+            <i class="far fa-calendar-check"></i>
+            <span>Manage Order</span></a>
+    </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link dropdown-button {{ request()->is('manage-user') || request()->is('view-profile/*') ? 'main-active' : '' }}" href="{{ route('manage-user') }}">
+            <i class="fas fa-user-shield"></i>
+            <span>User List</span></a>
+    </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link dropdown-button {{ request()->is('manage-customer') ? 'main-active' : '' }}" href="{{ route('manage-customers') }}">
+            <i class="fas fa-users"></i>
+            <span>Manage Customer</span></a>
+    </li>
+
+
+    <hr class="sidebar-divider my-0">
+
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-button py-3 {{ request()->is('add-slider') || request()->is('manage-slider') ? 'main-active' : '' }}" href="#">
             <i class="fab fa-slideshare"></i>
@@ -226,13 +251,6 @@
         </div>
     </li>
 
-    <hr class="sidebar-divider my-0">
-
-    <li class="nav-item">
-        <a class="nav-link dropdown-button {{ request()->is('manage-order') || request()->is('order-detail/*') || request()->is('order-invoice/*') || request()->is('edit-order/*') ? 'main-active' : '' }}" href="{{ route('manage-orders') }}">
-            <i class="far fa-calendar-check"></i>
-            <span>Manage Order</span></a>
-    </li>
 
 
 

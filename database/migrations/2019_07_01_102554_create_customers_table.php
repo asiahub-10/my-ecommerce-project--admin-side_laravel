@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('mobile');
             $table->text('address');
             $table->string('password');
+            $table->tinyInteger('activation_status')->default(1);
             $table->timestamps();
         });
     }
