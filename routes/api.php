@@ -177,10 +177,14 @@ Route::post('confirm-order', [
 //     REVIEW
 //==========================================
 
-
-Route::get('customer-review', [
+Route::post('customer-review', [
     'uses'  =>  'ReviewController@customerReviewSave',
     'as'    =>  'save-customer-review'
+]);
+
+Route::get('get-review/{id}', [
+    'uses'  =>  'ReviewController@getCustomerReview',
+    'as'    =>  'get-customer-review'
 ]);
 
 
