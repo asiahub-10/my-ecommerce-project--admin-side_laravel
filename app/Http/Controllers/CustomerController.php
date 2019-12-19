@@ -32,29 +32,23 @@ class CustomerController extends Controller
     public function customerLogin(Request $request) {
         $customer = Customer::where('email', $request->email)->first();
         if ($customer) {
-            if (password_verify($request->password, $customer->password)) {
-                return response()->json(['status'=>'success', 'customer'=>$customer], 200);
-            } else {
-                return response()->json(['status'=>'Password error', 'message'=>'Password does not matched. Please use valid password.'], 401);
+            if ($customer->activation_status == 1)
+            {
+                if (password_verify($request->password, $customer->password)) {
+                    return response()->json(['status'=>'success', 'customer'=>$customer], 200);
+                } else {
+                    return response()->json(['status'=>'error', 'message'=>'Password does not matched. Please use valid password.'], 401);
+                }
             }
+            else
+            {
+                return response()->json(['status'=>'error', 'message'=>'Sorry this account has been deactivated for some reason. Try with another account to login. You can also re-register using an unique email address.'], 401);
+            }
+
         } else {
-            return response()->json(['status'=>'error', 'message'=>'Please use valid email and password.'], 401);
+            return response()->json(['status'=>'error', 'message'=>'Email does not matched. Please use valid email address.'], 401);
         }
 
-    }
-
-    public function visitorEmailCheck($email) {
-        $customer = Customer::where('email', $email)->first();
-        if ($customer) {
-            return response()->json(['']);
-        } else {
-            return response()->json(['Please use valid user email address.']);
-        }
-    }
-
-    public function customerInfoById($id) {
-        $customer = Customer::where('id', $id)->first();
-        return $customer;
     }
 
     public function customerLogout($id) {

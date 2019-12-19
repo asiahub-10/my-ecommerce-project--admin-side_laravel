@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label for="" class="col-md-3">Email Address</label>
                     <div class="col-md-9">
-                        <input type="email" onblur="customerEmailCkeck(this.value, {{ $customer->id }});" class="form-control" name="email"  value="{{ old('email') != null ? old('email') : $customer->email }}"/>
+                        <input type="email" onkeyup="customerEmailCkeck(this.value, {{ $customer->id }});" class="form-control" name="email"  value="{{ old('email') != null ? old('email') : $customer->email }}"/>
                         <span id="emailError" class="text-danger"></span>
                         <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
                     </div>

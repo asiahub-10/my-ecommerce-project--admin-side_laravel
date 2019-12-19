@@ -109,19 +109,9 @@ Route::post('/login', [
     'as'    =>  'login'
 ]);
 
-Route::get('/customer-info/{id}', [
-    'uses'  =>  'CustomerController@customerInfoById',
-    'as'    =>  'customer-info'
-]);
-
 Route::post('/logout/{id}', [
     'uses'  =>  'CustomerController@customerLogout',
     'as'    =>  'logout'
-]);
-
-Route::post('/visitor-email-check/{email}', [
-    'uses'  =>  'CustomerController@visitorEmailCheck',
-    'as'    =>  'visitor-email-check'
 ]);
 
 Route::post('/visitor-password-check/{password}', [
@@ -180,5 +170,18 @@ Route::post('confirm-order', [
 //    'uses'  =>  'ShippingController@editedShippingInfo',
 //    'as'    =>  'get-edited-shipping-info'
 //]);
+
+
+
+//==========================================
+//     REVIEW
+//==========================================
+
+
+Route::get('customer-review', [
+    'uses'  =>  'ReviewController@customerReviewSave',
+    'as'    =>  'save-customer-review'
+]);
+
 
 
