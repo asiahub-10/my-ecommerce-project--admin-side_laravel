@@ -140,7 +140,7 @@
         </div>
         <div class="row mx-auto mb-3">
             <a href="{{ route('profile') }}" title="Profile"><i class="fas fa-user-circle mr-1 profile-icon text-white"></i></a>
-            <a href="{{ route('profile') }}" title="Setting"><i class="fas fa-cog mx-1 profile-icon text-white"></i></a>
+            <a href="{{ route('setting') }}" title="Setting"><i class="fas fa-cog mx-1 profile-icon text-white"></i></a>
             <a title="Logout" style="cursor: pointer;" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"><i class="fas fa-power-off ml-1 profile-icon text-white"></i></a>
             {{ Form::open(['route'=>'logout', 'method'=>'post', 'id'=>'logoutForm']) }}
             {{ Form::close() }}
@@ -221,17 +221,17 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link dropdown-button {{ request()->is('manage-user') || request()->is('view-profile/*') ? 'main-active' : '' }}" href="{{ route('manage-user') }}">
-            <i class="fas fa-user-shield"></i>
-            <span>User List</span></a>
+        <a class="nav-link dropdown-button {{ request()->is('manage-customer') || request()->is('edit-customer/*') ? 'main-active' : '' }}" href="{{ route('manage-customers') }}">
+            <i class="fas fa-users"></i>
+            <span>Manage Customer</span></a>
     </li>
 
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link dropdown-button {{ request()->is('manage-customer') || request()->is('edit-customer/*') ? 'main-active' : '' }}" href="{{ route('manage-customers') }}">
-            <i class="fas fa-users"></i>
-            <span>Manage Customer</span></a>
+        <a class="nav-link dropdown-button {{ request()->is('manage-customer-review') ? 'main-active' : '' }}" href="{{ route('manage-review') }}">
+            <i class="far fa-comment-dots"></i>
+            <span>Manage Customer Review</span></a>
     </li>
 
 
@@ -250,6 +250,14 @@
             <hr class="sidebar-divider my-0">
             <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-slider') ? 'sub-active' : '' }}" href="{{ route('manage-slider') }}">Manage Slider</a>
         </div>
+    </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link dropdown-button {{ request()->is('manage-user') || request()->is('view-profile/*') ? 'main-active' : '' }}" href="{{ route('manage-user') }}">
+            <i class="fas fa-user-shield"></i>
+            <span>User List</span></a>
     </li>
 
 

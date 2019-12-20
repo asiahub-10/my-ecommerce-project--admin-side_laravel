@@ -102,6 +102,11 @@ class UserProfileController extends Controller
         ]);
     }
 
+    public function profileSetting()
+    {
+        return view('admin.profile.profile-setting');
+    }
+
 
 
 }

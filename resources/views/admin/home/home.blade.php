@@ -9,6 +9,54 @@
         <h4 class="text-info text-uppercase">Dashboard</h4>
         <hr/>
         <div class="row">
+            <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body pb-0">
+                        <p class="text-center text-info"><i class="fas fa-2x fa-sitemap"></i></p>
+                        <h5 class="text-uppercase text-center text-info">Category</h5>
+                        <div class="row">
+                            <table class="table">
+                                <tr>
+                                    <th>Total</th>
+                                    <td class="text-right">{{ count($category) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Published</th>
+                                    <td class="text-right text-success">{{ count($categoryPublish) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Unpublished</th>
+                                    <td class="text-right text-warning">{{ count($categoryUnpublish) }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body pb-0">
+                        <p class="text-center text-info"><i class="fas fa-2x fa-award"></i></p>
+                        <h5 class="text-uppercase text-center text-info">Brand</h5>
+                        <div class="row">
+                            <table class="table">
+                                <tr>
+                                    <th>Total</th>
+                                    <td class="text-right">{{ count($brand) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Published</th>
+                                    <td class="text-right text-success">{{ count($brandPublish) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Unpublished</th>
+                                    <td class="text-right text-warning">{{ count($brandUnpublish) }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body pb-0">
@@ -45,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3">
+            <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body pb-0">
                         <p class="text-center text-info"><i class="far fa-2x fa-calendar-check"></i></p>
@@ -96,21 +144,21 @@
             <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body pb-0">
-                        <p class="text-center text-info"><i class="fas fa-2x fa-sitemap"></i></p>
-                        <h5 class="text-uppercase text-center text-info">Category</h5>
+                        <p class="text-center text-info"><i class="fas fa-2x fa-users"></i></p>
+                        <h5 class="text-uppercase text-center text-info">Customer</h5>
                         <div class="row">
                             <table class="table">
                                 <tr>
                                     <th>Total</th>
-                                    <td class="text-right">{{ count($category) }}</td>
+                                    <td class="text-right">{{ count($customer) }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Published</th>
-                                    <td class="text-right text-success">{{ count($categoryPublish) }}</td>
+                                    <th>Activate</th>
+                                    <td class="text-right text-success">{{ count($customerActive) }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Unpublished</th>
-                                    <td class="text-right text-warning">{{ count($categoryUnpublish) }}</td>
+                                    <th>Deactivate</th>
+                                    <td class="text-right text-warning">{{ count($customerDeactive) }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -120,21 +168,21 @@
             <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body pb-0">
-                        <p class="text-center text-info"><i class="fas fa-2x fa-award"></i></p>
-                        <h5 class="text-uppercase text-center text-info">Brand</h5>
+                        <p class="text-center text-info"><i class="far fa-2x fa-comments"></i></p>
+                        <h5 class="text-uppercase text-center text-info">Customer Review</h5>
                         <div class="row">
                             <table class="table">
                                 <tr>
                                     <th>Total</th>
-                                    <td class="text-right">{{ count($brand) }}</td>
+                                    <td class="text-right">{{ count($review) }}</td>
                                 </tr>
                                 <tr>
                                     <th>Published</th>
-                                    <td class="text-right text-success">{{ count($brandPublish) }}</td>
+                                    <td class="text-right text-success">{{ count($reviewPublish) }}</td>
                                 </tr>
                                 <tr>
                                     <th>Unpublished</th>
-                                    <td class="text-right text-warning">{{ count($brandUnpublish) }}</td>
+                                    <td class="text-right text-warning">{{ count($reviewUnpublish) }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -175,22 +223,6 @@
                                 <tr>
                                     <th>Total</th>
                                     <td class="text-right">{{ count($user) }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body pb-0">
-                        <p class="text-center text-info"><i class="fas fa-2x fa-users"></i></p>
-                        <h5 class="text-uppercase text-center text-info">Customer</h5>
-                        <div class="row">
-                            <table class="table">
-                                <tr>
-                                    <th>Total</th>
-                                    <td class="text-right">{{ count($customer) }}</td>
                                 </tr>
                             </table>
                         </div>

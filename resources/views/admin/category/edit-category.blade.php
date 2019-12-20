@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Add Category
+    Edit Category
 @endsection
 
 @section('body')

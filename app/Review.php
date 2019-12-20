@@ -17,9 +17,42 @@ class Review extends Model
         $review->save();
     }
 
-//    public function customer()
-//    {
-//        return $this->belongsTo('App\Customer');
-//    }
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
+
+    public static function unpublishCustomerReview($request)
+    {
+        $review = Review::find($request->id);
+        $review->publication_status = 0;
+        $review->update();
+    }
+
+    public static function publishCustomerReview($request)
+    {
+        $review = Review::find($request->id);
+        $review->publication_status = 1;
+        $review->update();
+    }
+
+    public static function deleteCustomerReview($request)
+    {
+        $review = Review::find($request->id);
+        $review->delete();
+    }
+
+
+
+
 
 }
+
+
+
+

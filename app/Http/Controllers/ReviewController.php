@@ -27,5 +27,53 @@ class ReviewController extends Controller
         return response()->json($reviews, 200);
     }
 
+    public function manageReview()
+    {
+        return view('admin.review.manage-review', [
+            'reviews'   => Review::all()
+        ]);
+    }
+
+    public function editReview($id)
+    {
+        return view('admin.review.edit-review', [
+            'reviews'   => Review::find($id)
+        ]);
+    }
+
+    public function unpublishReview(Request $request)
+    {
+        Review::unpublishCustomerReview($request);
+        return redirect('/manage-customer-review')->with('message', 'Review has been unpublished successfully');
+    }
+
+    public function publishReview(Request $request)
+    {
+        Review::publishCustomerReview($request);
+        return redirect('/manage-customer-review')->with('message', 'Review has been published successfully');
+    }
+
+    public function deleteReview(Request $request)
+    {
+        Review::deleteCustomerReview($request);
+        return redirect('/manage-customer-review')->with('message', 'Review has been deleted successfully');
+    }
+
+
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

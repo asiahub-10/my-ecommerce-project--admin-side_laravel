@@ -100,6 +100,11 @@ Route::post('/update-profile-info', [
     'as'    =>  'update-profile-info'
 ]);
 
+Route::get('/profile-setting', [
+    'uses'  =>  'UserProfileController@profileSetting',
+    'as'    =>  'setting'
+]);
+
 
 
 
@@ -365,6 +370,32 @@ Route::post('/customer-delete', [
     'uses'  =>  'CustomerController@deleteCustomer',
     'as'    =>  'customer-data-delete'
 ]);
+
+
+//============================
+//          Review
+//============================
+
+Route::get('/manage-customer-review', [
+    'uses'  =>  'ReviewController@manageReview',
+    'as'    =>  'manage-review'
+]);
+
+Route::post('/customer-review-unpublish', [
+    'uses'  =>  'ReviewController@unpublishReview',
+    'as'    =>  'unpublish-review'
+]);
+
+Route::post('/customer-review-publish', [
+    'uses'  =>  'ReviewController@publishReview',
+    'as'    =>  'publish-review'
+]);
+
+Route::post('/customer-review-delete', [
+    'uses'  =>  'ReviewController@deleteReview',
+    'as'    =>  'delete-review'
+]);
+
 
 
 
