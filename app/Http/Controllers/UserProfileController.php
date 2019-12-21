@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UserProfile;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -107,6 +108,49 @@ class UserProfileController extends Controller
         return view('admin.profile.profile-setting');
     }
 
+    public function changeEmail()
+    {
+        return view('admin.profile.change-email');
+    }
+
+    public function updateEmail(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if (!$user)
+        {
+            UserProfile::emailValidation($request);
+            UserProfile::changeUserEmail($request);
+            return redirect('/profile-setting')->with('message', 'Email address has been changed successfully.');
+        }
+        else
+        {
+            return redirect('/change-email')->with('error', 'Sorry this email exists. Please use another one.');
+        }
+    }
+
+    public function changePassword()
+    {
+        return view('admin.profile.change-password');
+    }
+
+    public function deleteAccount()
+    {
+        return view('admin.profile.delete-account');
+    }
+
+
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+

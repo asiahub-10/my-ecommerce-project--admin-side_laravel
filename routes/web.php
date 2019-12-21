@@ -105,6 +105,26 @@ Route::get('/profile-setting', [
     'as'    =>  'setting'
 ]);
 
+Route::get('/change-email', [
+    'uses'  =>  'UserProfileController@changeEmail',
+    'as'    =>  'change-email-address'
+]);
+
+Route::post('/update-email-address', [
+    'uses'  =>  'UserProfileController@updateEmail',
+    'as'    =>  'update-email'
+]);
+
+Route::get('/reset-password', [
+    'uses'  =>  'UserProfileController@changePassword',
+    'as'    =>  'change-password'
+]);
+
+Route::get('/delete-account', [
+    'uses'  =>  'UserProfileController@deleteAccount',
+    'as'    =>  'delete-profile'
+]);
+
 
 
 

@@ -9,7 +9,7 @@
     <style>
 
     </style>
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             <div class="col-xl-6 col-lg-8 col-sm-10 mx-auto p-0">
                 <div class="card card-body p-4 m-0 bg-transparent border-0 text-center">
@@ -26,10 +26,10 @@
                                 <th class="text-capitalize py-3 text-info text-center">designation</th>
                                 <td><input type="text" name="designation" value="{{ Auth::user()->designation }}" class="form-control bg-transparent border-0 shadow-none pt-2"/></td>
                             </tr>
-                            <tr>
-                                <th class="text-capitalize py-3 text-info text-center">email</th>
-                                <td><input type="text" name="email" value="{{ Auth::user()->email }}" class="form-control bg-transparent border-0 shadow-none pt-2"/></td>
-                            </tr>
+                            {{--<tr>--}}
+                                {{--<th class="text-capitalize py-3 text-info text-center">email</th>--}}
+                                {{--<td><input type="text" name="email" value="{{ Auth::user()->email }}" class="form-control bg-transparent border-0 shadow-none pt-2"/></td>--}}
+                            {{--</tr>--}}
                             <tr>
                                 <th class="text-capitalize py-3 text-info text-center">phone no.</th>
                                 <td><input type="text" name="phone" value="{{ Auth::user()->phone }}" class="form-control bg-transparent border-0 shadow-none pt-2"/></td>
