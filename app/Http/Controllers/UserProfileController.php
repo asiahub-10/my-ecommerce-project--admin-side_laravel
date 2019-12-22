@@ -133,11 +133,74 @@ class UserProfileController extends Controller
         return view('admin.profile.change-password');
     }
 
+    public function passwordReset(Request $request)
+    {
+        if (!password_verify($request->old_password, Auth::user()->password))
+        {
+            return redirect('/reset-password')
+                ->with('error', 'Password did not matched. Please use valid password.')
+                ->with('oldPassword', $request->old_password)
+                ->with('newPassword', $request->new_password)
+                ->with('confirmPassword', $request->confirm_password);
+        }
+        else
+        {
+            if (password_verify($request->new_password, Auth::user()->password))
+            {
+                return redirect('/reset-password')
+                    ->with('error', 'Old and new passwords are same. Please use another password.')
+                    ->with('oldPassword', $request->old_password)
+                    ->with('newPassword', $request->new_password)
+                    ->with('confirmPassword', $request->confirm_password);
+            }
+            else
+            {
+                if (strlen($request->new_password) < 6)
+                {
+                    return redirect('/reset-password')
+                        ->with('error', 'New password is less than 6 characters.')
+                        ->with('oldPassword', $request->old_password)
+                        ->with('newPassword', $request->new_password)
+                        ->with('confirmPassword', $request->confirm_password);
+                }
+                else
+                {
+                    if ($request->new_password != $request->confirm_password)
+                    {
+                        return redirect('/reset-password')
+                            ->with('error', 'Confirm password did not matched with new password.')
+                            ->with('oldPassword', $request->old_password)
+                            ->with('newPassword', $request->new_password)
+                            ->with('confirmPassword', $request->confirm_password);
+                    }
+                    else
+                    {
+                        UserProfile::changeUserPassword($request);
+                        return redirect('/profile-setting')
+                            ->with('message', 'Password has been changed successfully.');
+                    }
+                }
+            }
+        }
+    }
+
     public function deleteAccount()
     {
         return view('admin.profile.delete-account');
     }
 
+    public function removeAccount(Request $request)
+    {
+        if (!password_verify($request->password, Auth::user()->password))
+        {
+            return redirect('/delete-account')->with('error', 'Password did not matched.');
+        }
+        else
+        {
+            UserProfile::deleteUserAccount($request);
+            return redirect('/');
+        }
+    }
 
 
 

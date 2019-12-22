@@ -17,11 +17,15 @@
                         <h5 class="mt-2">This will permanently remove your account that cannot be restored.</h5>
                     </div>
                     <hr/>
-                    {{ Form::open(['route'=>'update-email', 'method'=>'POST']) }}
+                    {{ Form::open(['route'=>'remove-user', 'method'=>'POST']) }}
                     <div class="form-group row">
                         <label class="col-sm-5">Enter your password</label>
                         <div class="col-sm-7">
-                            <input type="password" name="old_password" class="form-control"/>
+                            <input type="password" name="password" class="form-control"/>
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+                            @if(Session::has('error'))
+                                <span class="text-danger ">{{ Session::get('error') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class=" text-center">
@@ -29,11 +33,6 @@
                         <a href="{{ route('setting') }}" class="btn btn-outline-dark text-uppercase mx-2 my-1">cancel</a>
                     </div>
                     {{ Form::close() }}
-                    <div class="my-2 text-center">
-                        @if(Session::has('error'))
-                            <h5 class="text-danger font-weight-bold ">{{ Session::get('error') }}</h5>
-                        @endif
-                    </div>
                 </div>
             </div>
         </div>

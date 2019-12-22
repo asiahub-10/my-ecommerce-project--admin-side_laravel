@@ -120,9 +120,19 @@ Route::get('/reset-password', [
     'as'    =>  'change-password'
 ]);
 
+Route::post('/change-password', [
+    'uses'  =>  'UserProfileController@passwordReset',
+    'as'    =>  'replace-password'
+]);
+
 Route::get('/delete-account', [
     'uses'  =>  'UserProfileController@deleteAccount',
     'as'    =>  'delete-profile'
+]);
+
+Route::post('/delete-profile', [
+    'uses'  =>  'UserProfileController@removeAccount',
+    'as'    =>  'remove-user'
 ]);
 
 
