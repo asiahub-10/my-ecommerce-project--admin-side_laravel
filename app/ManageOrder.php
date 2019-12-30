@@ -15,12 +15,14 @@ class ManageOrder extends Model
             $product = Product::find($orderItem->product_id);
             if ($order->order_status == 'Pending' && $request->order_status == 'Cancelled')
             {
-                $product->product_quantity      =   $product->product_quantity + $orderItem->product_quantity;
+                $product->product_quantity          =   $product->product_quantity + $orderItem->product_quantity;
+                $product->product_sales_quantity    =   $product->product_sales_quantity - $orderItem->product_quantity;
                 $product->update();
             }
             elseif ($order->order_status == 'Cancelled' && $request->order_status == 'Pending')
             {
-                $product->product_quantity      =   $product->product_quantity - $orderItem->product_quantity;
+                $product->product_quantity          =   $product->product_quantity - $orderItem->product_quantity;
+                $product->product_sales_quantity    =   $product->product_sales_quantity + $orderItem->product_quantity;
                 $product->update();
             }
         }
@@ -73,7 +75,8 @@ class ManageOrder extends Model
             $product = Product::find($orderItem->product_id);
             if ($order->order_status == 'Pending')
             {
-                $product->product_quantity = $product->product_quantity + $orderItem->product_quantity;
+                $product->product_quantity          = $product->product_quantity + $orderItem->product_quantity;
+                $product->product_sales_quantity    = $product->product_sales_quantity - $orderItem->product_quantity;
                 $product->update();
             }
             $orderItem->delete();

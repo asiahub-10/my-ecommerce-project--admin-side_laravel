@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Add Slider
+    Add Offer
 @endsection
 
 @section('body')
@@ -13,41 +13,43 @@
     </style>
     <div class="container">
         @if(Session::has('message'))
-            <div class="card-body text-center pb-0">
+            <div class="card-body text-center pb-0 alert">
+                <button type="button" class="close text-danger" data-dismiss="alert">x</button>
                 <i class="fas fa-2x fa-check text-info p-2 success"></i>
-                <h4 class="text-info font-weight-bold">{{ Session::get('message') }}</h4>
+                <h4 class="text-info font-weight-bold ">{{ Session::get('message') }}</h4>
             </div>
         @endif
 
         <div class="card my-5 col-lg-9 col-md-11 mx-auto px-0">
             <div class="card-header bg-gradient-info">
-                <h3 class="text-center text-light font-weight-bold font-italic">Add Slider</h3>
+                <h3 class="text-center text-light font-weight-bold font-italic">Add Offer</h3>
             </div>
             <div class="card-body col-sm-12">
-                {{ Form::open(['route'=>'save-slider', 'method'=>'POST', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data']) }}
+                {{ Form::open(['route'=>'save-new-offer', 'method'=>'POST', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data']) }}
                 <div class="form-group row">
-                    <label for="" class="col-md-3">Slider Title</label>
+                    <label for="" class="col-md-3">Offer Title</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="slider_title" value="{{ old('slider_title') }}"/>
-                        <span class="text-danger">{{ $errors->has('slider_title') ? $errors->first('slider_title') : '' }}</span>
+                        <input type="text" class="form-control" name="offer_title" value="{{ old('offer_title') }}"/>
+                        <span class="text-danger">{{ $errors->has('offer_title') ? $errors->first('offer_title') : '' }}</span>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3">Slider Image</label>
+                    <label class="col-md-3">Offer Image</label>
                     <div class="col-md-9">
-                        <input type="file" name="slider_image" onchange="showImage.call(this)" class="text-light bg-gradient-info" accept="image/*" />
+                        <input type="file" name="offer_image" onchange="showImage.call(this)" class="text-light bg-gradient-info" accept="image/*" />
                         <br/>
-                        <img src="" id="productImage" alt="Product Image" class="mt-2" width="170" height="100" style="border: 1px solid #bcbcbc; display: none;"/>
-                        <span class="text-danger">{{ $errors->has('slider_image') ? $errors->first('slider_image') : '' }}</span>
+                        <img src="" id="productImage" alt="Product Image" class="mt-2" width="150" height="100" style="border: 1px solid #bcbcbc; display: none;"/>
+{{--                        <span class="text-danger">{{ $errors->has('offer_image') ? $errors->first('offer_image') : '' }}</span>--}}
+                        <span class="text-danger">{{ $errors->has('offer_image') ? 'Image file size must be maximum one kilobyte.' : '' }}</span>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3">Slider Description</label>
+                    <label class="col-md-3">Offer Description</label>
                     <div class="col-md-9">
-                        <textarea class="form-control" name="slider_description" >{{ old('slider_description') }}</textarea>
-                        <span class="text-danger">{{ $errors->has('slider_description') ? $errors->first('slider_description') : ' ' }}</span>
+                        <textarea class="form-control" name="offer_description" id="editor">{{ old('offer_description') }}</textarea>
+{{--                        <span class="text-danger">{{ $errors->has('offer_description') ? $errors->first('offer_description') : ' ' }}</span>--}}
                     </div>
                 </div>
 
@@ -64,7 +66,7 @@
                 <div class="form-group row">
                     <label class="col-md-3"></label>
                     <div class="col-md-9">
-                        <input type="submit" name="btn" class="btn btn-outline-info font-weight-bold btn-block form-control" value="Save Slider Info"/>
+                        <input type="submit" name="btn" class="btn btn-outline-info font-weight-bold btn-block form-control" value="Save Offer Info"/>
                     </div>
                 </div>
                 {{ Form::close() }}

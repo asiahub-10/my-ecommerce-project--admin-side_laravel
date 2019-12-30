@@ -94,6 +94,11 @@ class SliderController extends Controller
         return redirect('/manage-slider')->with('message', 'Slider delete successfully');
     }
 
+    public function getSlider()
+    {
+        $slider = Slider::where('publication_status', 1)->get();
+        return response()->json($slider, 200);
+    }
 
 
 

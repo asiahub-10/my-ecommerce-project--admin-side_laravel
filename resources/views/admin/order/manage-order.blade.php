@@ -8,7 +8,7 @@
     <style>
 
     </style>
-    <div class="">
+    <div class="mt-4 mb-5">
 
         @if(Session::has('message'))
             <div class="card-body text-center pb-0 alert">

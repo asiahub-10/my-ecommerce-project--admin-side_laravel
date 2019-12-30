@@ -131,7 +131,7 @@
                             @foreach($products as $product)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->product->id }}</td>
                                 <td>{{ $product->product_name }}</td>
                                 <td>&#2547; {{ number_format($product->product_price, 2) }}</td>
                                 <td>{{ $product->product_quantity }}</td>

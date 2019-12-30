@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Manage Slider
+    Manage Offer
 @endsection
 
 @section('body')
@@ -22,71 +22,71 @@
                     <thead class="bg-gradient-info text-light">
                     <tr>
                         <th>SL No.</th>
-                        <th>Slider Title</th>
-                        <th>Slider Image</th>
-                        <th>Slider Description</th>
+                        <th>Offer Title</th>
+                        <th>Offer Image</th>
+                        <th>Offer Description</th>
                         <th>Publication Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @php($i=1)
-                    @foreach($sliders as $slider)
+                    @foreach($offers as $offer)
                         <tr>
                             <th>{{ $i++ }}</th>
-                            <th>{{ $slider->slider_title }}</th>
+                            <th>{{ $offer->offer_title }}</th>
                             <th>
-                                <img src="{{ asset('/') }}{{ $slider->slider_image }}" alt="Slider Image" width="120" height="70"/>
+                                <img src="{{ asset('/') }}{{ $offer->offer_image }}" alt="offer Image" width="120" height="70"/>
                             </th>
-                            <th>{{ $slider->slider_description }}</th>
+                            <th>{!! $offer->offer_description !!}</th>
                             <th>
-                                @if($slider->publication_status == 1)
+                                @if($offer->publication_status == 1)
                                     <p class="text-success">Published</p>
                                 @else
                                     <p class="text-warning">Unpublished</p>
                                 @endif
                             </th>
                             <th class="custom-control-inline border-0">
-                                <a href="{{ route('edit-slider', ['id'=>$slider->id]) }}" class="btn btn-info" title="Edit"><i class="fas fa-edit"></i></a>
-                                @if($slider->publication_status == 0)
+                                <a href="{{ route('edit-offer-info', ['id'=>$offer->id]) }}" class="btn btn-info" title="Edit"><i class="fas fa-edit"></i></a>
+                                @if($offer->publication_status != 1)
                                     <a href="#" onclick="
                                             event.preventDefault();
-                                            var check = confirm('Are you sure to publish this slider ???');
+                                            var check = confirm('Are you sure to publish this offer ???');
                                             if (check) {
-                                            document.getElementById('publishSliderForm'+'{{ $slider->id }}').submit();
+                                            document.getElementById('publishOfferForm'+'{{ $offer->id }}').submit();
                                             }
                                             " class="btn btn-success mx-1" title="Publish"><i class="fas fa-cloud-upload-alt"></i></a>
-                                    <form id="publishSliderForm{{ $slider->id }}" action="{{ route('publish-slider') }}" method="post">
+                                    <form id="publishOfferForm{{ $offer->id }}" action="{{ route('publish-offer') }}" method="post">
                                         @csrf
-                                        <input type="hidden" value="{{ $slider->id }}" name="id"/>
+                                        <input type="hidden" value="{{ $offer->id }}" name="id"/>
                                     </form>
 
                                 @else
                                     <a href="#" onclick="
                                             event.preventDefault();
-                                            var check = confirm('Are you sure to unpublish this slider ???');
+                                            var check = confirm('Are you sure to unpublish this offer ???');
                                             if (check) {
-                                            document.getElementById('unpublishSliderForm'+'{{ $slider->id }}').submit();
+                                            document.getElementById('unpublishOfferForm'+'{{ $offer->id }}').submit();
                                             }
                                             " class="btn btn-warning mx-1" title="Unpublish"><i class="fas fa-cloud-download-alt"></i></a>
-                                    <form id="unpublishSliderForm{{ $slider->id }}" action="{{ route('unpublish-slider') }}" method="post">
+                                    <form id="unpublishOfferForm{{ $offer->id }}" action="{{ route('unpublish-offer') }}" method="post">
                                         @csrf
-                                        <input type="hidden" value="{{ $slider->id }}" name="id"/>
+                                        <input type="hidden" value="{{ $offer->id }}" name="id"/>
                                     </form>
                                 @endif
 
                                 <a href="#" onclick="
                                         event.preventDefault();
-                                        var check = confirm('Are you sure to delete this slider ???');
+                                        var check = confirm('Are you sure to delete this offer ???');
                                         if (check) {
-                                        document.getElementById('deleteSliderForm'+'{{ $slider->id }}').submit();
+                                        document.getElementById('deleteOfferForm'+'{{ $offer->id }}').submit();
                                         }
                                         " class="btn btn-danger" title="Delete"><i class="fas fa-trash-alt"></i>
 
                                 </a>
-                                <form id="deleteSliderForm{{ $slider->id }}" action="{{ route('delete-slider') }}" method="post">
+                                <form id="deleteOfferForm{{ $offer->id }}" action="{{ route('delete-offer-info') }}" method="post">
                                     @csrf
-                                    <input type="hidden" value="{{ $slider->id }}" name="id"/>
+                                    <input type="hidden" value="{{ $offer->id }}" name="id"/>
                                 </form>
                             </th>
                         </tr>
@@ -95,9 +95,9 @@
                     <tfoot class="bg-gradient-info text-light">
                     <tr>
                         <th>SL No.</th>
-                        <th>Slider Title</th>
-                        <th>Slider Image</th>
-                        <th>Slider Description</th>
+                        <th>Offer Title</th>
+                        <th>Offer Image</th>
+                        <th>Offer Description</th>
                         <th>Publication Status</th>
                         <th>Action</th>
                     </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Customer;
+use App\Offer;
 use App\Order;
 use App\Payment;
 use App\Product;
@@ -32,7 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         return view('admin.home.home', [
             'category'              => Category::all(),
             'categoryPublish'       => Category::where('publication_status', 1)->get(),
@@ -49,6 +49,9 @@ class HomeController extends Controller
             'slide'                 => Slider::all(),
             'slidePublish'          => Slider::where('publication_status', 1)->get(),
             'slideUnpublish'        => Slider::where('publication_status', '!=', 1)->get(),
+            'offer'                 => Offer::all(),
+            'offerPublish'          => Offer::where('publication_status', 1)->get(),
+            'offerUnpublish'        => Offer::where('publication_status', '!=', 1)->get(),
             'user'                  => User::all(),
             'customer'              => Customer::all(),
             'customerActive'        => Customer::where('activation_status', 1)->get(),

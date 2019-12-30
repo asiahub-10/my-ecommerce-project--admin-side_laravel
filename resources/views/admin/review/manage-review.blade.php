@@ -6,7 +6,7 @@
 
 @section('body')
 
-    <div class="container my-5">
+    <div class="container mt-4 mb-5">
         @if(Session::has('message'))
             <div class="card-body text-center pb-0 alert">
                 <button type="button" class="close text-danger" data-dismiss="alert">x</button>

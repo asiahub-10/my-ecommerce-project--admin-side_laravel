@@ -323,6 +323,52 @@ Route::post('/delete-slider', [
 
 
 //============================
+//          Offer
+//============================
+
+Route::get('/add-offer', [
+    'uses'  =>  'OfferController@addOffer',
+    'as'    =>  'add-offer'
+]);
+
+Route::post('/save-offer', [
+    'uses'  =>  'OfferController@saveOffer',
+    'as'    =>  'save-new-offer'
+]);
+
+Route::get('/manage-offer', [
+    'uses'  =>  'OfferController@manageOffer',
+    'as'    =>  'manage-offer'
+]);
+
+Route::get('/edit-offer/{id}', [
+    'uses'  =>  'OfferController@editOffer',
+    'as'    =>  'edit-offer-info'
+]);
+
+Route::post('/update-offer', [
+    'uses'  =>  'OfferController@updateOffer',
+    'as'    =>  'update-offer-info'
+]);
+
+Route::post('/publish-offer', [
+    'uses'  =>  'OfferController@publishOffer',
+    'as'    =>  'publish-offer'
+]);
+
+Route::post('/unpublish-offer', [
+    'uses'  =>  'OfferController@unpublishOffer',
+    'as'    =>  'unpublish-offer'
+]);
+
+Route::post('/delete-offer', [
+    'uses'  =>  'OfferController@deleteOffer',
+    'as'    =>  'delete-offer-info'
+]);
+
+
+
+//============================
 //          Order
 //============================
 

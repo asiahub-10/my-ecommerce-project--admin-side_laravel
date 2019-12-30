@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\DB;
 class ApiController extends Controller
 {
     public function allPublishedCategory() {
-        $categories = Category::where('publication_status', 1)->where('product_quantity', '>=', 1 )->get();
+        $categories = Category::where('publication_status', 1)->get();
         return $categories;
     }
 
      public function allPublishedBrand() {
-        $brands = Brand::where('publication_status', 1)->where('product_quantity', '>=', 1 )->get();
+        $brands = Brand::where('publication_status', 1)->get();
         return $brands;
         }
 

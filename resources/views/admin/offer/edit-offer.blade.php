@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Update Slider
+    Update offer
 @endsection
 
 @section('body')
@@ -22,34 +22,34 @@
 
         <div class="card my-5 col-lg-9 col-md-11 mx-auto px-0">
             <div class="card-header bg-gradient-info">
-                <h3 class="text-center text-light font-weight-bold font-italic">Add Slider</h3>
+                <h3 class="text-center text-light font-weight-bold font-italic">Add Offer</h3>
             </div>
             <div class="card-body col-sm-12">
-                {{ Form::open(['route'=>'update-slider', 'method'=>'POST', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data']) }}
+                {{ Form::open(['route'=>'update-offer-info', 'method'=>'POST', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data']) }}
                 <div class="form-group row">
-                    <label for="" class="col-md-3">Slider Title</label>
+                    <label for="" class="col-md-3">Offer Title</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="slider_title" value="{{ old('slider_title') != null ? old('slider_title') : $slider->slider_title }}"/>
-                        <input type="hidden" class="form-control" name="id" value="{{ $slider->id }}"/>
-                        <span class="text-danger">{{ $errors->has('slider_title') ? $errors->first('slider_title') : '' }}</span>
+                        <input type="text" class="form-control" name="offer_title" value="{{ old('offer_title') != null ? old('offer_title') : $offer->offer_title }}"/>
+                        <input type="hidden" class="form-control" name="id" value="{{ $offer->id }}"/>
+                        <span class="text-danger">{{ $errors->has('offer_title') ? $errors->first('offer_title') : '' }}</span>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3">Slider Image</label>
+                    <label class="col-md-3">Offer Image</label>
                     <div class="col-md-9">
-                        <input type="file" name="slider_image" onchange="showImage.call(this)" class="text-light bg-gradient-info" accept="image/*" />
+                        <input type="file" name="offer_image" onchange="showImage.call(this)" class="text-light bg-gradient-info" accept="image/*" />
                         <br/>
-                        <img src="{{ asset('/') }}{{ $slider->slider_image }}" id="productImage" alt="Product Image" class="mt-2" width="170" height="100" style="border: 1px solid #bcbcbc;"/>
-                        <span class="text-danger">{{ $errors->has('slider_image') ? $errors->first('slider_image') : '' }}</span>
+                        <img src="{{ asset('/') }}{{ $offer->offer_image }}" id="offerImage" alt="Offer Image" class="mt-2" width="170" height="100" style="border: 1px solid #bcbcbc;"/>
+                        <span class="text-danger">{{ $errors->has('offer_image') ? 'Image file size must be maximum one kilobyte.' : '' }}</span>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3">Slider Description</label>
+                    <label class="col-md-3">Offer Description</label>
                     <div class="col-md-9">
-                        <textarea class="form-control" name="slider_description" >{{ old('slider_description') != null ? old('slider_description') : $slider->slider_description }}</textarea>
-                        <span class="text-danger">{{ $errors->has('slider_description') ? $errors->first('slider_description') : ' ' }}</span>
+                        <textarea class="form-control" name="offer_description" id="editor">{{ old('offer_description') != null ? old('offer_description') : $offer->offer_description }}</textarea>
+                        {{--<span class="text-danger">{{ $errors->has('offer_description') ? $errors->first('offer_description') : ' ' }}</span>--}}
                     </div>
                 </div>
 
@@ -57,8 +57,8 @@
                     <label class="col-md-3">Publication Status</label>
                     <div class="col-md-9">
                         @if(old('publication_status') == null)
-                            <label class="mr-3"><input type="radio" name="publication_status" class="mr-1" value="1" {{ $slider->publication_status == 1 ? 'checked' : '' }}/>Published</label>
-                            <label><input type="radio" name="publication_status" class="mr-1" value="0" {{ $slider->publication_status != 1  ? 'checked' : '' }}/>Unpublished</label>
+                            <label class="mr-3"><input type="radio" name="publication_status" class="mr-1" value="1" {{ $offer->publication_status == 1 ? 'checked' : '' }}/>Published</label>
+                            <label><input type="radio" name="publication_status" class="mr-1" value="0" {{ $offer->publication_status != 1  ? 'checked' : '' }}/>Unpublished</label>
                         @else
                             <label class="mr-3"><input type="radio" name="publication_status" class="mr-1" value="1" {{ old('publication_status') == 1 ? 'checked' : '' }}/>Published</label>
                             <label><input type="radio" name="publication_status" class="mr-1" value="0" {{ old('publication_status') != null && old('publication_status') != 1  ? 'checked' : '' }}/>Unpublished</label>
@@ -71,7 +71,7 @@
                 <div class="form-group row">
                     <label class="col-md-3"></label>
                     <div class="col-md-9">
-                        <input type="submit" name="btn" class="btn btn-outline-info font-weight-bold btn-block form-control" value="Update Slide Info"/>
+                        <input type="submit" name="btn" class="btn btn-outline-info font-weight-bold btn-block form-control" value="Update Offer Info"/>
                     </div>
                 </div>
                 {{ Form::close() }}
@@ -84,7 +84,7 @@
             if (this.files && this.files[0]) {
                 var obj = new FileReader();
                 obj.onload = function (data) {
-                    var image = document.getElementById('productImage');
+                    var image = document.getElementById('offerImage');
                     image.src = data.target.result;
                 };
                 obj.readAsDataURL(this.files[0]);

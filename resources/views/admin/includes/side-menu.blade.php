@@ -148,7 +148,7 @@
     </div>
 
     <!-- Divider -->
-    {{--<hr class="sidebar-divider my-0">--}}
+    <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item ">
@@ -238,7 +238,7 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-button py-3 {{ request()->is('add-slider') || request()->is('manage-slider') ? 'main-active' : '' }}" href="#">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-slider') || request()->is('manage-slider') || request()->is('edit-slider/*') ? 'main-active' : '' }}" href="#">
             <i class="fab fa-slideshare"></i>
             <span style="padding-right: 5px;"></span>
             <span>Slider</span>
@@ -248,9 +248,27 @@
         <div class="dropdown-content bg-gradient-info">
             <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-slider') ? 'sub-active' : '' }}" href="{{ route('add-slider') }}">Add Slider</a>
             <hr class="sidebar-divider my-0">
-            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-slider') ? 'sub-active' : '' }}" href="{{ route('manage-slider') }}">Manage Slider</a>
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-slider') || request()->is('edit-slider/*') ? 'sub-active' : '' }}" href="{{ route('manage-slider') }}">Manage Slider</a>
         </div>
     </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-button py-3 {{ request()->is('add-offer') || request()->is('manage-offer') || request()->is('edit-offer/*') ? 'main-active' : '' }}" href="#">
+            <i class="fas fa-gift"></i>
+            <span style="padding-right: 5px;"></span>
+            <span>Offer</span>
+            <span style="padding-left: 102px;"></span>
+            <i class="fas fa-level-up-alt more-item-icon"></i>
+        </a>
+        <div class="dropdown-content bg-gradient-info">
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('add-offer') ? 'sub-active' : '' }}" href="{{ route('add-offer') }}">Add Offer</a>
+            <hr class="sidebar-divider my-0">
+            <a class="nav-link sub-menu-item pl-3 {{ request()->is('manage-offer') || request()->is('edit-offer/*') ? 'sub-active' : '' }}" href="{{ route('manage-offer') }}">Manage Offer</a>
+        </div>
+    </li>
+
 
     <hr class="sidebar-divider my-0">
 

@@ -192,6 +192,30 @@
             <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body pb-0">
+                        <p class="text-center text-info"><i class="fas fa-2x fa-gift"></i></p>
+                        <h5 class="text-uppercase text-center text-info">Offer</h5>
+                        <div class="row">
+                            <table class="table">
+                                <tr>
+                                    <th>Total</th>
+                                    <td class="text-right">{{ count($offer) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Published</th>
+                                    <td class="text-right text-success">{{ count($offerPublish) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Unpublished</th>
+                                    <td class="text-right text-warning">{{ count($offerUnpublish) }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body pb-0">
                         <p class="text-center text-info"><i class="fab fa-2x fa-slideshare"></i></p>
                         <h5 class="text-uppercase text-center text-info">Slider</h5>
                         <div class="row">

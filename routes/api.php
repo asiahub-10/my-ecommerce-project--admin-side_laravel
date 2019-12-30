@@ -189,3 +189,35 @@ Route::get('get-review/{id}', [
 
 
 
+//==========================================
+//     SLIDER
+//==========================================
+
+Route::get('slider', [
+    'uses'  =>  'SliderController@getSlider',
+    'as'    =>  'get-slider'
+]);
+
+
+
+//==========================================
+//     Best Sales
+//==========================================
+
+Route::get('best-sale', [
+    'uses'  =>  'BestSaleController@getBestSale',
+    'as'    =>  'get-best-sale'
+]);
+
+
+
+
+
+
+
+
+
+
+
+
+
