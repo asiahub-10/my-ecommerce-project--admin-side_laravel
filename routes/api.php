@@ -17,7 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('demo', function () {
     return 'Hello Api';
 });
@@ -41,8 +40,6 @@ Route::get('/category-by-id/{id}', [
     'as'    =>  'category-by-id'
 ]);
 
-
-
 //==========================================
 //     BRAND
 //==========================================
@@ -61,8 +58,6 @@ Route::get('/brand-product-by-id/{id}', [
     'uses'  =>  'ApiController@productByBrandId',
     'as'    =>  'brand-product-by-id'
 ]);
-
-
 
 //==========================================
 //     PRODUCT
@@ -87,8 +82,6 @@ Route::get('/all-product', [
     'uses'  =>  'ApiController@allProduct',
     'as'    =>  'all-product'
 ]);
-
-
 
 //==========================================
 //     CUSTOMER
@@ -119,13 +112,9 @@ Route::post('/visitor-password-check/{password}', [
     'as'    =>  'visitor-password-check'
 ]);
 
-
-
-
 //==========================================
 //     CHECKOUT
 //==========================================
-
 
 Route::post('/get-customer-id', [
     'uses'  =>  'CheckoutController@getCustomerId',
@@ -148,18 +137,14 @@ Route::get('/customer-by-id/{id}', [
 //]);
 
 
-
 //==========================================
 //     ORDER
 //==========================================
-
 
 Route::post('confirm-order', [
     'uses'  =>  'OrderController@confirmOrder',
     'as'    =>  'get-confirm-order'
 ]);
-
-
 
 //Route::post('shipping-info', [
 //    'uses'  =>  'ShippingController@shippingInfo',
@@ -170,7 +155,6 @@ Route::post('confirm-order', [
 //    'uses'  =>  'ShippingController@editedShippingInfo',
 //    'as'    =>  'get-edited-shipping-info'
 //]);
-
 
 
 //==========================================
@@ -187,8 +171,6 @@ Route::get('get-review/{id}', [
     'as'    =>  'get-customer-review'
 ]);
 
-
-
 //==========================================
 //     SLIDER
 //==========================================
@@ -198,8 +180,6 @@ Route::get('slider', [
     'as'    =>  'get-slider'
 ]);
 
-
-
 //==========================================
 //     Best Sales
 //==========================================
@@ -207,6 +187,15 @@ Route::get('slider', [
 Route::get('best-sale', [
     'uses'  =>  'BestSaleController@getBestSale',
     'as'    =>  'get-best-sale'
+]);
+
+//==========================================
+//     Offers
+//==========================================
+
+Route::get('offer', [
+    'uses'  =>  'OfferController@getOffer',
+    'as'    =>  'get-all-offer'
 ]);
 
 

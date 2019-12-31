@@ -70,6 +70,11 @@ class OfferController extends Controller
         return redirect('/manage-offer')->with('message', 'Offer has been deleted successfully.');
     }
 
+    public function getOffer()
+    {
+        return Offer::where('publication_status', 1)->orderBy('id', 'DESC')->get();
+    }
+
 
 
 }
