@@ -10,7 +10,7 @@
 
         <div class="card mt-5 col-lg-7 col-md-10 mx-auto px-0">
             <div class="card-header bg-gradient-info">
-                <h3 class="text-center text-light font-weight-bold font-italic">Add brand</h3>
+                <h3 class="text-center text-light font-weight-bold font-italic">Edit brand</h3>
             </div>
             <div class="card-body col-sm-12">
                 {{ Form::open(['route'=>'update-brand', 'method'=>'post', 'class'=>'form-horizontal']) }}

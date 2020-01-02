@@ -21,7 +21,7 @@
 
         <div class="card my-5 col-lg-9 col-md-11 mx-auto px-0">
             <div class="card-header bg-gradient-info">
-                <h3 class="text-center text-light font-weight-bold font-italic">Add Product</h3>
+                <h3 class="text-center text-light font-weight-bold font-italic">Edit Product</h3>
             </div>
             <div class="card-body col-sm-12">
                 {{ Form::open(['route'=>'update-product', 'method'=>'post', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data']) }}

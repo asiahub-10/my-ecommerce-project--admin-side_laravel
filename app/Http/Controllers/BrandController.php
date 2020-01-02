@@ -15,7 +15,7 @@ class BrandController extends Controller
     protected function checkBrandData($request) {
         $this->validate($request, [
             'brand_name'            =>  'required|min:2|regex:/(^([a-zA-Z -]+)(\d+)?$)/u',
-            'brand_description'     =>  'required|min:2|max:120|regex:/(^([a-zA-Z,. -]+)(\d+)?$)/u',
+            'brand_description'     =>  'required|min:2|max:120|regex:/(^([a-zA-Z;,. -]+)(\d+)?$)/u',
             'publication_status'    =>  'required'
         ]);
     }

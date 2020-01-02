@@ -22,7 +22,7 @@ class ProductController extends Controller
             'product_name'                  =>  'required|min:2|max:120|regex:/(^([a-zA-Z01-9 -]+)(\d+)?$)/u',
             'product_price'                 =>  'required|regex:/^(\d+(,\d{1,2})?)?$/',
             'product_quantity'              =>  'required|digits_between:1,5',
-            'product_short_description'     =>  'required|min:2|max:200|regex:/(^([a-zA-Z01-9 -]+)(\d+)?$)/u',
+            'product_short_description'     =>  'required|min:2|max:200|regex:/(^([a-zA-Z01-9,.; -]+)(\d+)?$)/u',
             'product_long_description'      =>  'required|min:10|max:1200',
             'publication_status'            =>  'required',
         ]);

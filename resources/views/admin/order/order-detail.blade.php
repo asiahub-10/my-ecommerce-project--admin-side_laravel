@@ -23,7 +23,7 @@
                             </tr>
                             <tr>
                                 <td class="font-weight-bold">Order Total</td>
-                                <td>&#2547; {{ number_format($order->id, 2) }}</td>
+                                <td>&#2547; {{ number_format($order->order_total, 2) }}</td>
                             </tr>
                             <tr>
                                 <td class="font-weight-bold">Order Status</td>

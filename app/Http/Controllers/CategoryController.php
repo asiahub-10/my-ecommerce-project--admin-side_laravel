@@ -15,7 +15,7 @@ class CategoryController extends Controller
     protected function checkCategoryData($request) {
         $this->validate($request, [
             'category_name'         =>  'required|min:2|regex:/(^([a-zA-Z -]+)(\d+)?$)/u',
-            'category_description'  =>  'required|min:2|max:120|regex:/(^([a-zA-Z -]+)(\d+)?$)/u',
+            'category_description'  =>  'required|min:2|max:120|regex:/(^([a-zA-Z;,. -]+)(\d+)?$)/u',
             'publication_status'    =>  'required'
         ]);
     }
