@@ -1,5 +1,5 @@
 ## About my-project
-This is a dynamic ecommerce website for admin panel which is created with laravel. Basically this is back-end of the ecommerce site and also linked up with the front-end. 
+This is a dynamic ecommerce website for admin panel which is created with laravel. Basically this is back-end of the ecommerce site and also linked up with a front-end. 
 
 In addition, the front-end of this site is created with vue.js whose link is also given bellow.
 
