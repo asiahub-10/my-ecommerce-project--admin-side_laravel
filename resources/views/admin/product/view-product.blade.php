@@ -31,11 +31,11 @@
                         </tr>
                         <tr>
                             <th width="35%">Product Price:</th>
-                            <td>{{ $product->product_price }}</td>
+                            <td>&#2547; {{ number_format($product->product_price, 2) }}</td>
                         </tr>
                         <tr>
                             <th width="35%">Product Quantity:</th>
-                            <td>&#2547;{{ number_format($product->product_quantity, 2) }}</td>
+                            <td>{{ $product->product_quantity }}</td>
                         </tr>
                         <tr>
                             <th width="35%">Product Short Description:</th>

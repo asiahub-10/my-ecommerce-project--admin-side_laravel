@@ -68,7 +68,7 @@ class UserProfileController extends Controller
         $user = User::find(Auth::user()->id);
         $user->name         =   $request->name;
         $user->designation  =   $request->designation;
-        $user->email        =   $request->email;
+        //$user->email        =   $request->email;
         $user->phone        =   $request->phone;
         $user->save();
         return redirect('/profile');
