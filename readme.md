@@ -4,7 +4,7 @@ This is a dynamic ecommerce website for admin panel which is created with larave
 In addition, the front-end of this site is created with vue.js whose link is also given bellow.
 
 ## Preview
-Click to
+Click on
 <a href="https://asiahub-10.github.io/my-project-preview/">PREVIEW VIDEO</a>
 to watch the preview of this project.
 
