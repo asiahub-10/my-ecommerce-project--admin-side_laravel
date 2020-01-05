@@ -104,7 +104,7 @@
                                     <thead>
                                     <tr style="font-size: medium;">
                                         <td class="text-center"><strong>SL No.</strong></td>
-                                        <td><strong>Item Description</strong></td>
+                                        <td class="w-50"><strong>Item Description</strong></td>
                                         <td class="text-center"><strong>Item Price</strong></td>
                                         <td class="text-center"><strong>Item Quantity</strong></td>
                                         <td class="text-right"><strong>Total</strong></td>
@@ -116,7 +116,7 @@
                                     @foreach($products as $product)
                                         <tr>
                                             <td class="text-center">{{ $i++ }}</td>
-                                            <td>
+                                            <td class="w-50">
                                                 <b>{{ $product->product_name }}</b>
                                                 <p class="mb-0">{{ $product->product->product_short_description }}</p>
                                             </td>
