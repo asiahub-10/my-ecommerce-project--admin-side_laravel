@@ -1,3 +1,23 @@
+## About my-project
+This is a dynamic ecommerce website for admin panel which is created with laravel. Basically this is back-end of the ecommerce site and also linked up with a front-end. 
+
+In addition, the front-end of this site is created with vue.js whose link is also given bellow.
+
+## Preview
+Click on
+<a href="https://asiahub-10.github.io/my-project-preview/">PREVIEW VIDEO</a>
+to watch the preview of this project.
+
+## Aditional Links
+The aditional information about the front-end, which is related to this project, is as follows:
+
+Preview video: https://asiahub-10.github.io/my-project-front-preview/
+
+Git Repo: https://github.com/asiahub-10/my-project-front
+
+#
+
+<!--
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -69,3 +89,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-->
