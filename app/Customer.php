@@ -47,7 +47,7 @@ class Customer extends Model
             'first_name'            => 'required|min:2|max:20|regex:/(^([a-zA-Z. -]+)(\d+)?$)/u',
             'last_name'             => 'required|min:2|max:20|regex:/(^([a-zA-Z. -]+)(\d+)?$)/u',
             'email'                 => 'required|email',
-            'mobile'                => 'required|regex:/\+?(88)?0?1[456789][0-9]{8}\b/',
+            'mobile'                => 'required|regex:/\+?(88)?0?1[3456789][0-9]{8}\b/',
             'address'               => 'required|min:5|max:150|regex:/(^([\/a-zA-Z01-9. -]+)(\d+)?$)/u',
             'activation_status'     => 'required'
         ],

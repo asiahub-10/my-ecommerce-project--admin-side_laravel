@@ -50,12 +50,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string'],
-            'designation' => ['required', 'string'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:2', 'max:20'],
+            'designation' => ['required', 'string', 'min:2', 'max:20'],
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+            'phone' => ['required', 'string', 'regex:/\+?(88)?0?1[3456789][0-9]{8}\b/'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ],
+            [
+                'email.unique' => 'The email has already been taken. Please use an unique email address.',
+                'phone.regex'=> 'Please use Valid Bangladeshi mobile number.'
+            ]);
     }
 
     /**
@@ -73,7 +77,6 @@ class RegisterController extends Controller
 //        $directory  =   'user-image/';
 //        $imageUrl   =   $directory.$imageName;
 //        Image::make($userImage)->resize(300,300)->save($imageUrl);
-
 
         return User::create([
             'name'              => $data['name'],
